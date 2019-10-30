@@ -9,11 +9,12 @@ class LoginPage extends React.Component {
       <div style={{backgroundColor: "#CDC0B0"}}>
         <section className="section container">
           <div className="columns is-centered">
+              
               <div className="column is-half">
                 <LoginForm />
                 <LoginStatus />
               </div>
-            </div>
+          </div>  
         </section>
       </div>
     );

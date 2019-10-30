@@ -19,6 +19,10 @@ const LoginForm = ({ dispatch }) => {
         password.value = "";
       }}
     >
+  
+   
+     
+   
     <div className="loginbox">
       <div className="field">
         <label className="label">ID</label>
@@ -53,7 +57,8 @@ const LoginForm = ({ dispatch }) => {
           </button>
         </div>
       </div>
-    
+      
+      
     </form>
   );
 };
