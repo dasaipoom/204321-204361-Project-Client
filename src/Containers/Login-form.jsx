@@ -7,7 +7,9 @@ const LoginForm = ({ dispatch }) => {
   let password;
 
   return (
+    
     <form
+      
       onSubmit={e => {
         e.preventDefault();
         if (!(username.value.trim() && password.value.trim())) {
@@ -17,6 +19,7 @@ const LoginForm = ({ dispatch }) => {
         password.value = "";
       }}
     >
+    <div className="loginbox">
       <div className="field">
         <label className="label">ID</label>
         <div className="control">
@@ -28,6 +31,7 @@ const LoginForm = ({ dispatch }) => {
           />
         </div>
       </div>
+    
 
       <div className="field">
         <label className="label">Password</label>
@@ -40,14 +44,16 @@ const LoginForm = ({ dispatch }) => {
           />
         </div>
       </div>
+      </div>
 
       <div className="field is-grouped">
         <div className="control">
-          <button type="submit" className="button is-link">
+          <button type="submit" className="buttonis-link">
             Login
           </button>
         </div>
       </div>
+    
     </form>
   );
 };
