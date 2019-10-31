@@ -10,6 +10,7 @@ import LoginPage from "../Login-page/Login-page";
 class App extends Component {
   render() {
     return (
+      <div className="bg">
       <Router>
           <Switch>
             <Route exact path="/">
@@ -17,6 +18,7 @@ class App extends Component {
             </Route>
           </Switch>
       </Router>
+      </div>
     )
   }
 }
