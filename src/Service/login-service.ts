@@ -14,11 +14,18 @@ export function loggingIn(username: string, password: string) {
         password
       })
       .then(res => {
-        if (res.status !== 200) {
-          dispatch(actions.loginError());
-        } else actions.loginSuccess(res.data.username, res.data.jwt);
+        if (res.status === 200 && res.data.jwt)
+        dispatch(actions.loginSuccess(
+            res.data.username,
+            res.data.jwt,
+            res.data.userType,
+            res.data.expireOn
+          ));
+        else dispatch(actions.loginError(res.data.errInfo));
       })
       .catch(err => {
+        if (err.response)
+          dispatch(actions.loginError(err.response.data.errInfo));
         console.error(err);
       });
   };
