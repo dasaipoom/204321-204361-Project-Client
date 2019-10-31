@@ -3,22 +3,24 @@ import { connect } from "react-redux";
 
 class LoginStatus extends Component {
   render() {
-    const { isLoggingIn, isLogin, isError } = this.props;
+    // @ts-ignore
+    const { isOnProgress, isLogin, isError, errInfo } = this.props;
 
     return (
       <div>
-        {isLoggingIn && <p>User is Logging in</p>}
+        {isOnProgress && <p>User is Logging in</p>}
         {isLogin && <p>User is Logged in</p>}
-        {isError && <p>Login is error</p>}
+        {isError && <p>Login is error: {errInfo}</p>}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  isLoggingIn: state.login.isLoggingIn,
+  isOnProgress: state.login.isOnProgress,
   isLogin: state.login.isLogin,
-  isError: state.login.isError
+  isError: state.login.isError,
+  errInfo: state.login.errInfo
 });
 
 export default connect(mapStateToProps)(LoginStatus);
