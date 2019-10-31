@@ -19,10 +19,7 @@
     box-sizing: border-box;
     box-shadow: 3px 3px 0px #463930;
     border-radius: 15px;
- 
-    
-
-    
+    margin-top: 75px;
     
 }
 
@@ -31,6 +28,8 @@
     width: 120px;
     height: 60px;
     margin-top: 46px;
+    margin-left: 120%;
+    margin-bottom: auto;
     background: #A99282;
     border: 2px solid #733E2F;
     box-shadow: 2px 2px 0px #733E2F;
@@ -39,6 +38,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 25px;
+
 
 
     color: #FFFFFF;
@@ -58,4 +58,20 @@
     color: #FFFFFF;
 
 
+}
+
+.LOGO{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-indent: 75px;
+
+}
+
+.body{
+    size: 100% auto;
 }

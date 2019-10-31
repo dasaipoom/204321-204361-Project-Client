@@ -21,8 +21,15 @@ const LoginForm = ({ dispatch }) => {
     >
   
    
-     
-   
+    
+
+      
+    
+    
+    
+    <body>
+      
+    <label className="LOGO">Plan.G</label>
     <div className="loginbox">
       <div className="field">
         <label className="label">ID</label>
@@ -57,8 +64,8 @@ const LoginForm = ({ dispatch }) => {
           </button>
         </div>
       </div>
-      
-      
+    </body>
+    
     </form>
   );
 };
