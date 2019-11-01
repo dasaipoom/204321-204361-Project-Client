@@ -6,10 +6,6 @@ const axios = _axios.create({
   baseURL: "http://localhost:4000/auth"
 });
 
-const options = {
-  headers: { Authorization: store.getState().login.jwt }
-};
-
 export function loggingIn(username: string, password: string) {
   return dispatch => {
     dispatch(actions.loginStart());
@@ -44,7 +40,9 @@ export function loggingOut() {
   return dispatch => {
     dispatch(actions.logoutStart());
     axios
-      .post("/login", null, options)
+      .post("/login", null, {
+        headers: { Authorization: store.getState().login.jwt }
+      })
       .then(_ => {
         dispatch(actions.logoutSuccess());
       })

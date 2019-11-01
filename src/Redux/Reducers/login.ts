@@ -64,9 +64,9 @@ const login = createReducer(defaultState, {
     };
   },
   logoutSuccess: (state, action) => {
-    Cookies.remove("jwt"),
-    Cookies.remove("username"),
-    Cookies.remove("userType")
+    Cookies.remove("jwt");
+    Cookies.remove("username");
+    Cookies.remove("userType");
     return {
       ...state,
       jwt: null,
