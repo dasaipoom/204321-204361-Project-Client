@@ -5,10 +5,10 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { configureStore, getDefaultMiddleware } from "redux-starter-kit";
 import rootReducer from "./Redux/Reducers";
-import App from "./Components/App/App";
+import App from "./Containers/App/App";
 import "bulma/css/bulma.css";
 
-export default function configureAppStore(preloadedState?) {
+function configureAppStore(preloadedState?) {
   const store = configureStore({
     reducer: rootReducer,
     middleware: [...getDefaultMiddleware()],
@@ -21,10 +21,10 @@ export default function configureAppStore(preloadedState?) {
 export const store = configureAppStore();
 
 ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.getElementById("root")
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

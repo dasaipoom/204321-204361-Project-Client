@@ -57,8 +57,27 @@ const login = createReducer(defaultState, {
       errInfo: action.payload.errInfo
     };
   },
-  logoutStart: (state, action) => {},
-  logoutSuccess: (state, action) => {}
+  logoutStart: (state, action) => {
+    return {
+      ...state,
+      isOnProgress: true
+    };
+  },
+  logoutSuccess: (state, action) => {
+    Cookies.remove("jwt"),
+    Cookies.remove("username"),
+    Cookies.remove("userType")
+    return {
+      ...state,
+      jwt: null,
+      isOnProgress: false,
+      isLogin: false,
+      isError: false,
+      errInfo: null,
+      username: null,
+      userType: null
+    };
+  }
 });
 
 export default login;

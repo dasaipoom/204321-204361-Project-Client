@@ -23,3 +23,9 @@ export const loginError = createAction("loginError", errInfo => {
     }
   };
 });
+
+export const logoutStart = createAction("logoutStart");
+
+export const logoutSuccess = createAction("logoutSuccess");
+
+export const resumeSession = createAction("resumeSession");
