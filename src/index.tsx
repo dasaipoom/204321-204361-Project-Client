@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import { configureStore, getDefaultMiddleware } from "redux-starter-kit";
 import rootReducer from "./Redux/Reducers";
 import App from "./Containers/App/App";
-import "bulma/css/bulma.css";
 
 function configureAppStore(preloadedState?) {
   const store = configureStore({

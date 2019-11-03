@@ -1,11 +1,10 @@
+html {
+  overflow-y: auto !important;
+  background-color: #CDC0B0 !important;
+}
+
 body {
-  height: 100vh;
   background-color: #CDC0B0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }

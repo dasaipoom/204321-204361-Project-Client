@@ -16,7 +16,7 @@ class App extends Component {
     // @ts-ignore
     const { isOnProgress, isLogin, userType } = this.props;
     return (
-      <div className="bg">
+      <>
         <Router>
           <Switch>
             <Route exact path="/">
@@ -36,11 +36,11 @@ class App extends Component {
               {isLogin ? <TablePage /> : <Redirect to="/login" />}
             </Route>
             <Route path="/chat">
-            {isLogin ? <ChatPage />: <Redirect to="/login" />}
+              {isLogin ? <ChatPage /> : <Redirect to="/login" />}
             </Route>
           </Switch>
         </Router>
-      </div>
+      </>
     );
   }
 }
