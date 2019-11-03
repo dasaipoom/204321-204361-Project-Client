@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { loggingIn } from "../Service/login-service";
 import "../Components/Login-page/Login-page.scss";
 
-const LoginForm = ({ dispatch }) => {
+const LoginForm = ({ isOnProgress, dispatch }) => {
   let username;
   let password;
 
@@ -13,8 +13,8 @@ const LoginForm = ({ dispatch }) => {
       <label className="LOGO">Plan.G</label>
      </div>
      
-     <form 
-      
+     <form
+
       onSubmit={e => {
         e.preventDefault();
         if (!(username.value.trim() && password.value.trim())) {
@@ -24,9 +24,9 @@ const LoginForm = ({ dispatch }) => {
         password.value = "";
       }}
     >
-    
+
     <div className="columns is-centered">
-    
+
           <div className="loginbox">
           <div className="columns is-centered">
               <div className="is-one-quarter">
@@ -59,11 +59,11 @@ const LoginForm = ({ dispatch }) => {
               </div>
             </div>
 
-              
-           
-          </div>  
+
+
+          </div>
         </div>
-            
+
           <div className="columns is-centered">
             <div className="field is-grouped">
               <div className="control">
@@ -74,10 +74,9 @@ const LoginForm = ({ dispatch }) => {
             </div>
           </div>
       </form>
-      
+
     </div>
   );
 };
 
 export default connect()(LoginForm);
-

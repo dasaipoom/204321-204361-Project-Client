@@ -1,5 +1,6 @@
 import _axios from "axios";
-import * as actions from "../Redux/Actions";
+import * as actions from "../Redux/Actions/loginAction";
+import { store } from "../index";
 
 const axios = _axios.create({
   baseURL: "http://localhost:4000/auth"
@@ -30,6 +31,23 @@ export function loggingIn(username: string, password: string) {
         else {
           dispatch(actions.loginError(null));
         }
+        console.error(err);
+      });
+  };
+}
+
+export function loggingOut() {
+  return dispatch => {
+    dispatch(actions.logoutStart());
+    axios
+      .post("/login", null, {
+        headers: { Authorization: store.getState().login.jwt }
+      })
+      .then(_ => {
+        dispatch(actions.logoutSuccess());
+      })
+      .catch(err => {
+        dispatch(actions.logoutSuccess());
         console.error(err);
       });
   };
