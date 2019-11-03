@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { loggingIn } from "../Service/login-service";
 import "../Components/Login-page/Login-page.scss";
 
-const LoginForm = ({ isOnProgress, dispatch }) => {
+const LoginForm = ({ dispatch }) => {
   let username;
   let password;
 
