@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loggingIn } from "../Service/login-service";
+import { loggingIn } from "../../../Service/login-service";
 import "../Components/Login-page/Login-page.scss";
 
 const LoginForm = ({ dispatch }) => {
@@ -45,7 +45,10 @@ const LoginForm = ({ dispatch }) => {
               </div>
             </div>
             <div className="flexbox">
-              <button type="submit" className="logbutton is-link">
+              <button
+                type="submit"
+                className="logbutton button is-link is-loading"
+              >
                 Login
               </button>
             </div>

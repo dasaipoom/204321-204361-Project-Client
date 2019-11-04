@@ -6,10 +6,10 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import LoginPage from "../../Components/Login-page/Login-page";
+import LoginPage from "../Login-page/Login-page";
 import { connect } from "react-redux";
-import TablePage from "../../Components/Table-page/Table-page";
-import ChatPage from "../../Components/Chat-page/Chat-page";
+import TablePage from "../Table-page/Table-page";
+import ChatPage from "../Chat-page/Chat-page";
 
 class App extends Component {
   render() {
