@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loggingIn } from "../../../Service/login-service";
-import "../Components/Login-page/Login-page.scss";
+import "../Login-page.scss";
 
 const LoginForm = ({ dispatch }) => {
   let username;
@@ -26,31 +26,37 @@ const LoginForm = ({ dispatch }) => {
               <div className="flex-container lbox">
                 <div className="field top">
                   <label className="label">ID</label>
-                  <input
-                    className="loginput"
-                    type="username"
-                    name="username"
-                    ref={node => (username = node)}
-                  />
+                  <div className="control">
+                    <input
+                      className="loginput"
+                      type="username"
+                      name="username"
+                      ref={node => (username = node)}
+                    />
+                  </div>
                 </div>
                 <div className="field bot">
                   <label className="label">Password</label>
-                  <input
-                    className="loginput"
-                    type="password"
-                    name="password"
-                    ref={node => (password = node)}
-                  />
+                  <div className="control">
+                    <input
+                      className="loginput"
+                      type="password"
+                      name="password"
+                      ref={node => (password = node)}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="flexbox">
-              <button
-                type="submit"
-                className="logbutton button is-link is-loading"
-              >
-                Login
-              </button>
+              <div className="control">
+                <button
+                  type="submit"
+                  className="logbutton button is-link is-loading"
+                >
+                  Login
+                </button>
+              </div>
             </div>
           </div>
         </form>

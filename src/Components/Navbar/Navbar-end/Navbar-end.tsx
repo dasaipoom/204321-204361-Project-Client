@@ -6,19 +6,19 @@ const NavbarEnd = ({ isTablepage }) => {
     <div className="navbar-item">
       <div className="field is-grouped">
         <p className="control">
-          <a className="button">
+          <a className="button chat">
             <span className="icon">
-              <i className="fas fa-twitter" aria-hidden="true"></i>
+              <i className="fas fa-comment"></i>
             </span>
-            <span>Tweet</span>
+            <span>Chat</span>
           </a>
         </p>
         <p className="control">
-          <a className="button is-primary">
+          <a className="button logout">
             <span className="icon">
-              <i className="fas fa-download" aria-hidden="true"></i>
+              <i className="fas fa-sign-out-alt"></i>
             </span>
-            <span>Download</span>
+            <span>Logout</span>
           </a>
         </p>
       </div>

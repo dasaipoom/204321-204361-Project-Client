@@ -1,0 +1,33 @@
+.navbar {
+  background: #94908B !important;
+}
+
+.navbar-brand {
+  background: #7C7977;
+  border-radius: 0px 0px 15px 0px;
+
+
+  &>a {
+    color: white;
+    padding: 0 25px;
+    font-size: 35px;
+  }
+}
+
+.chat {
+  border: 2px solid #A7BDBD !important;
+  box-shadow: 2.5px 2.5px 0px #A7BDBD !important;
+}
+
+.logout {
+  border: 2px solid #A7858F !important;
+  box-shadow: 2.5px 2.5px 0px #A7858F !important;
+}
+
+// this is important
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
+// other need
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/form/_all.sass";
+@import "~bulma/sass/components/navbar.sass";
