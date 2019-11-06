@@ -16,10 +16,10 @@ class App extends Component {
   render() {
     // @ts-ignore
     return (
-      <React.Fragment>
+      <>
         <Navbar />
         <TablePage />
-      </React.Fragment>
+      </>
 
     );
   }
