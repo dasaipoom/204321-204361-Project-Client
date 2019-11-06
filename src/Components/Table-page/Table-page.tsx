@@ -1,9 +1,10 @@
 import React from "react";
-
+import TableForm from "./Table-form/Table-from";
 class TablePage extends React.Component {
   render() {
-    return <p>I'm Table page</p>;
+    return (
+      <TableForm />
+    );
   }
 }
-
 export default TablePage;

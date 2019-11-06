@@ -15,32 +15,12 @@ import Navbar from "../Navbar/Navbar";
 class App extends Component {
   render() {
     // @ts-ignore
-    const { isOnProgress, isLogin, userType } = this.props;
     return (
-      <Router>
+      <React.Fragment>
         <Navbar />
-        <Switch>
-          <Route exact path="/">
-            {isLogin ? <Redirect to="/redir" /> : <Redirect to="/login" />}
-          </Route>
-          <Route path="/redir">
-            {userType === "student" ? (
-              <Redirect to="/table" />
-            ) : (
-              <Redirect to="/chat" />
-            )}
-          </Route>
-          <Route path="/login">
-            {isLogin ? <Redirect to="/redir" /> : <LoginPage />}
-          </Route>
-          <Route path="/table">
-            {isLogin ? <TablePage /> : <Redirect to="/login" />}
-          </Route>
-          <Route path="/chat">
-            {isLogin ? <ChatPage /> : <Redirect to="/login" />}
-          </Route>
-        </Switch>
-      </Router>
+        <TablePage />
+      </React.Fragment>
+
     );
   }
 }
