@@ -6,10 +6,39 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 60px;
+    font-size: 50px;
     line-height: 70px;
     display: block;
     align-items: center;
     text-align: center;
     color:#242424;
+}
+
+caption{
+    display: table-caption;
+    width: 306px;
+    height: 30px;
+    float: left;
+    background: #D7D2CE;
+    border: 1px solid #7C7977;
+    border-radius: 15px 15px 0px 0px;
+}
+.col1{
+    width: 182.5px;
+    height: 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14.592px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #242424;
+    background: #ABB7C8;
+    border: 1px solid #7C7977;
+
+}
+th,td{
+    border: 1px solid #7C7977;
 }
