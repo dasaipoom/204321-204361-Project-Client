@@ -1,90 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./Table-page.scss"
-var Tabulator = require('tabulator-tables');
+import "./Table-page.scss";
+import { getTable } from "../../Service/table-service";
 
-var tableData = [
-   {
-       "CourseID": "001101",
-       "CourseName": "Fundamental English 1",
-       "CourseCredit": 3,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "A"
-   },
-   {
-       "CourseID": "201111",
-       "CourseName": "The World of Science",
-       "CourseCredit": 3,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "A"
-   },
-   {
-       "CourseID": "202101",
-       "CourseName": "Basic Biology 1",
-       "CourseCredit": 3,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "B"
-   },
-   {
-       "CourseID": "202103",
-       "CourseName": "Biology Laboratory 1",
-       "CourseCredit": 1,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "A"
-   },
-   {
-       "CourseID": "203111",
-       "CourseName": "Chemistry 1",
-       "CourseCredit": 3,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "D+"
-   },
-   {
-       "CourseID": "203115",
-       "CourseName": "Chemistry Laboratory 1",
-       "CourseCredit": 1,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "B+"
-   },
-   {
-       "CourseID": "204111",
-       "CourseName": "Fundamentals of Programming",
-       "CourseCredit": 3,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "A"
-   },
-   {
-       "CourseID": "206111",
-       "CourseName": "Calculus 1",
-       "CourseCredit": 3,
-       "Year": 1,
-       "Term": 1,
-       "Grade": "C+"
-   }
-];
+class TableForm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  componentDidMount() {
+    // @ts-ignore
+    this.props.getTable(this.props.id);
+  }
 
-var table = new Tabulator("CoursePlan", {
-   data:tableData, //set initial table data
-   columns:[
-       {title:"รหัสวิชา", field:"CourseID"},
-       {title:"ชื่อวิชา", field:"CourseName"},
-       {title:"หน่วยกิต", field:"CourseCredit"},
-       {title:"เกรด", field:"Grade"},
-       
-   ],
+  render() {
+    // @ts-ignore
+    const { table } = this.props;
+    return (
+      <div className="table">
+        {table &&
+          table.map((element, index) => {
+            return <p key={index}>{element.CourseID}</p>;
+          })}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  table: state.table.table
 });
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getTable: () => dispatch(getTable(ownProps.id))
+  };
+};
 
-
-  
-  export default table;
-
-  
+export default connect(mapStateToProps, mapDispatchToProps)(TableForm);

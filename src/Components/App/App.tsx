@@ -11,11 +11,16 @@ import { connect } from "react-redux";
 import TablePage from "../Table-page/Table-page";
 import ChatPage from "../Chat-page/Chat-page";
 import Navbar from "../Navbar/Navbar";
+import { resumeSession } from "../../Redux/Actions/loginAction";
 
 class App extends Component {
+  componentDidMount() {
+    // @ts-ignore
+    this.props.resume();
+  }
   render() {
     // @ts-ignore
-    const { isOnProgress, isLogin, userType } = this.props;
+    const { isOnProgress, isLogin, userType, username } = this.props;
     return (
       <Router>
         <Navbar />
@@ -25,7 +30,7 @@ class App extends Component {
           </Route>
           <Route path="/redir">
             {userType === "student" ? (
-              <Redirect to="/table" />
+              <Redirect to={`/table/${username}`} />
             ) : (
               <Redirect to="/chat" />
             )}
@@ -33,7 +38,7 @@ class App extends Component {
           <Route path="/login">
             {isLogin ? <Redirect to="/redir" /> : <LoginPage />}
           </Route>
-          <Route path="/table">
+          <Route path="/table/:id">
             {isLogin ? <TablePage /> : <Redirect to="/login" />}
           </Route>
           <Route path="/chat">
@@ -47,7 +52,14 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   isLogin: state.login.isLogin,
-  userType: state.login.userType
+  userType: state.login.userType,
+  username: state.login.username
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    resume: () => dispatch(resumeSession())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -50,10 +50,7 @@ const LoginForm = ({ dispatch }) => {
             </div>
             <div className="flexbox">
               <div className="control">
-                <button
-                  type="submit"
-                  className="logbutton button is-link is-loading"
-                >
+                <button type="submit" className="logbutton button is-link">
                   Login
                 </button>
               </div>
