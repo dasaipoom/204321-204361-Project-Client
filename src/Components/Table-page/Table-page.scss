@@ -1,5 +1,16 @@
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
 
+.table{
+    margin-top: 100px;
+}
+
+
+$pink: #FA7C91;
+
+$table-head-background-color : $pink;
+
 //// other need
 @import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/table.sass";
+@import "~bulma/sass/form/_all.sass";
