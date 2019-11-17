@@ -28,7 +28,7 @@ const LoginForm = ({ dispatch }) => {
                   <label className="label">ID</label>
                   <div className="control">
                     <input
-                      className="loginput"
+                      className="input"
                       type="username"
                       name="username"
                       ref={node => (username = node)}
@@ -39,7 +39,7 @@ const LoginForm = ({ dispatch }) => {
                   <label className="label">Password</label>
                   <div className="control">
                     <input
-                      className="loginput"
+                      className="input"
                       type="password"
                       name="password"
                       ref={node => (password = node)}
