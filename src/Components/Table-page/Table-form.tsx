@@ -4,10 +4,6 @@ import "./Table-page.scss";
 import { getTable } from "../../Service/table-service";
 
 class TableForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     // @ts-ignore
     this.props.getTable(this.props.id);

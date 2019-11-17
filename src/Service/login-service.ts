@@ -40,7 +40,7 @@ export function loggingOut() {
   return dispatch => {
     dispatch(actions.logoutStart());
     axios
-      .post("/login", null, {
+      .post("/logout", null, {
         headers: { Authorization: store.getState().login.jwt }
       })
       .then(_ => {

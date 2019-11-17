@@ -3,7 +3,8 @@ import { createReducer } from "redux-starter-kit";
 const defaultState = {
   table: null,
   isOnProgress: false,
-  isError: false
+  isError: false,
+  maxYear: null
 };
 
 const table = createReducer(defaultState, {
@@ -12,16 +13,21 @@ const table = createReducer(defaultState, {
       ...state,
       table: null,
       isOnProgress: true,
-      isError: false
+      isError: false,
+      maxYear: null
     };
   },
   tableLoadSuccess: (state, action) => {
-    console.log(action.payload.table);
     return {
       ...state,
       table: action.payload.table,
       isOnProgress: false,
-      isError: false
+      isError: false,
+      maxYear: action.payload.table
+        .map(val => val.Year)
+        .reduce((a, b) => {
+          return Math.max(a, b);
+        })
     };
   },
   tableLoadError: (state, action) => {

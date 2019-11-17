@@ -20,10 +20,9 @@ class App extends Component {
   }
   render() {
     // @ts-ignore
-    const { isOnProgress, isLogin, userType, username } = this.props;
+    const { isLogin, userType, username } = this.props;
     return (
       <Router>
-        <Navbar />
         <Switch>
           <Route exact path="/">
             {isLogin ? <Redirect to="/redir" /> : <Redirect to="/login" />}
@@ -39,9 +38,11 @@ class App extends Component {
             {isLogin ? <Redirect to="/redir" /> : <LoginPage />}
           </Route>
           <Route path="/table/:id">
+            <Navbar isTablePage={true}/>
             {isLogin ? <TablePage /> : <Redirect to="/login" />}
           </Route>
           <Route path="/chat">
+            <Navbar />
             {isLogin ? <ChatPage /> : <Redirect to="/login" />}
           </Route>
         </Switch>
