@@ -1,72 +1,90 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./Table-page.scss"
+var Tabulator = require('tabulator-tables');
 
-class TableForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-       students: [
-          { studentid: 500510977, classid: '204112', classname: "aas", year: 1,term:1,credit:3,grade:'a' },
-          { studentid: 500510977, classid: '204512', classname: "aadfs", year: 1,term:1,credit:3,grade:'a' },
-          { studentid: 500510977, classid: '204512', classname: "aadfs", year: 1,term:1,credit:3,grade:'a' },
-          { studentid: 500510977, classid: '204912', classname: "aadfs", year: 1,term:1,credit:3,grade:'a' },
-          { studentid: 500510977, classid: '204777', classname: "asdasd", year: 1,term:2,credit:3,grade:'c' },
-          { studentid: 500510977, classid: '001226', classname: "gfdgdf", year: 1,term:3,credit:3,grade:'b' },
-          { studentid: 500510977, classid: '005884', classname: "aon", year: 2,term:1,credit:3,grade:'F' }
-       ]
-    }
- }
+var tableData = [
+   {
+       "CourseID": "001101",
+       "CourseName": "Fundamental English 1",
+       "CourseCredit": 3,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "A"
+   },
+   {
+       "CourseID": "201111",
+       "CourseName": "The World of Science",
+       "CourseCredit": 3,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "A"
+   },
+   {
+       "CourseID": "202101",
+       "CourseName": "Basic Biology 1",
+       "CourseCredit": 3,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "B"
+   },
+   {
+       "CourseID": "202103",
+       "CourseName": "Biology Laboratory 1",
+       "CourseCredit": 1,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "A"
+   },
+   {
+       "CourseID": "203111",
+       "CourseName": "Chemistry 1",
+       "CourseCredit": 3,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "D+"
+   },
+   {
+       "CourseID": "203115",
+       "CourseName": "Chemistry Laboratory 1",
+       "CourseCredit": 1,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "B+"
+   },
+   {
+       "CourseID": "204111",
+       "CourseName": "Fundamentals of Programming",
+       "CourseCredit": 3,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "A"
+   },
+   {
+       "CourseID": "206111",
+       "CourseName": "Calculus 1",
+       "CourseCredit": 3,
+       "Year": 1,
+       "Term": 1,
+       "Grade": "C+"
+   }
+];
 
 
- renderhead(){
-   return (
-           <thead>
-               <tr>
-                   <th><abbr title="Classid">รหัสวิชา</abbr></th>
-                   <th><abbr title="Classname">ชื่อวิชา</abbr></th>
-                   <th><abbr title="Credit">หน่วยกิจ</abbr></th>
-                   <th><abbr title="Grade">เกรดที่ได้</abbr></th>
-               </tr>
-           </thead> 
-   )
- }
- 
+var table = new Tabulator("CoursePlan", {
+   data:tableData, //set initial table data
+   columns:[
+       {title:"รหัสวิชา", field:"CourseID"},
+       {title:"ชื่อวิชา", field:"CourseName"},
+       {title:"หน่วยกิต", field:"CourseCredit"},
+       {title:"เกรด", field:"Grade"},
+       
+   ],
+});
 
- renderTableData() {
+
+
   
-   
-       return this.state.students.map((students, index) => {
-         const { classid, classname, credit, grade ,term} = students //destructuring
-         return (
-           <tr id='row0'>
-               <td>{classid}</td>
-               <td>{classname}</td>
-               <td>{credit}</td>
-               <td>{grade}</td>
-           </tr>
-         )
-    })
-
-}
-
- render() {
-    return (
-       <div>
-          
-          <table >
-             {this.renderhead()}
-             <tbody>
-                
-                {this.renderTableData()}
-             </tbody>
-          </table>
-       </div>
-    )
- }
-}
-
-  
-  export default TableForm;
+  export default table;
 
   
