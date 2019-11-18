@@ -10,6 +10,7 @@ const LoginForm = ({ dispatch }) => {
   return (
     <>
       <label className="LOGO">Plan.G</label>
+      <label className="LOGO2">เว็บไซต์ติดตามและเฝ้าระวังการพ้นสภาพนักศึกษา</label>
       <div className="flexbox">
         <form
           onSubmit={e => {
@@ -50,7 +51,7 @@ const LoginForm = ({ dispatch }) => {
             </div>
             <div className="flexbox">
               <div className="control">
-                <button type="submit" className="logbutton button is-link">
+                <button type="submit" className="logbutton button">
                   Login
                 </button>
               </div>

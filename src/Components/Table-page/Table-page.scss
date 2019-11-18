@@ -1,15 +1,25 @@
-@import "~bulma/sass/utilities/_all.sass";
-@import "~bulma/sass/base/_all.sass";
+@import "../Palette.scss";
+
 
 .table{
-    margin-top: 100px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    border-collapse: collapse;
+    border-radius: 1em;
 }
 
 
-$pink: #FA7C91;
 
-$table-head-background-color : $pink;
 
+$table-head-background-color :$orangebase;
+$table-cell-border: 2px solid $halfgray ;
+$table-striped-row-even-background-color:$light;
+$table-row-hover-background-color:$hoverlight;
+$table-striped-row-even-hover-background-color:$hoverlight;
+
+
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
 //// other need
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/elements/table.sass";

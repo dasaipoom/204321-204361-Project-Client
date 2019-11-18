@@ -1,6 +1,13 @@
+@import "../Palette.scss";
+
+$navbar-background-color: $orangebase;
+
+
 // this is important
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
+
+
 // other need
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/form/_all.sass";
