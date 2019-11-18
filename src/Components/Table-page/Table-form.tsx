@@ -13,17 +13,17 @@ function LoopTable(table){
   for (let i = 1; i < 9; i++) {
     const year = table.filter((tables) => {
       return tables.Year === i  })
-    
+
     for (let j = 1; j < 4; j++){
       const term = year.filter((year) => {
         return year.Term === j
       })
       // @ts-ignore
-      tab.push(<TableFull key={i+""+j} courses={term} />)
-      
-      }  
+      tab.push(<TableFull key={i+""+j} courses={term} tid={"y"+i+j}/>)
+
+      }
   }
-  
+
   }
   return tab
 }
@@ -40,8 +40,8 @@ class TableForm extends React.Component {
   render() {
     // @ts-ignore
     const { table } = this.props;
-    
-    
+
+
     return (
       <div className="flexbox">
         <div className="flex-container">
@@ -70,7 +70,7 @@ class TableForm extends React.Component {
             <tbody>
               {table &&
                 table.map((element, index) => {
-                  
+
                   return <TableEle key={index} element={element} />;
                 })}
             </tbody>

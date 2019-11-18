@@ -17,6 +17,7 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-starter-kit": "^1.0.0",
+    "smooth-scroll": "^16.1.0",
     "tabulator-tables": "^4.4.3",
     "typescript": "^3.6.4"
   },

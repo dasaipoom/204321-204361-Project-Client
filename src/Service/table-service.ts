@@ -3,11 +3,7 @@ import * as actions from "../Redux/Actions/tableAction";
 import { store } from "../index";
 
 const axios = _axios.create({
-<<<<<<< Updated upstream
-  baseURL: "http://10.80.4.32:4000/api/plan"
-=======
   baseURL: "http://localhost:4000/api/plan"
->>>>>>> Stashed changes
 });
 
 export function getTable(id: string) {

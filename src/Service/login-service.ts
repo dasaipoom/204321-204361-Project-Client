@@ -3,11 +3,7 @@ import * as actions from "../Redux/Actions/loginAction";
 import { store } from "../index";
 
 const axios = _axios.create({
-<<<<<<< Updated upstream
-  baseURL: "http://10.80.4.32:4000/api/auth"
-=======
   baseURL: "http://localhost:4000/api/auth"
->>>>>>> Stashed changes
 });
 
 export function loggingIn(username: string, password: string) {

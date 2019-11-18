@@ -6,29 +6,29 @@ function TableHead (){
       <thead>
             <tr>
               <th  className="has-text-centered">
-                <abbr title="Classid">รหัสวิชา</abbr>
+                รหัสวิชา
               </th>
               <th  className="has-text-centered">
-                <abbr title="Classname">ชื่อวิชา</abbr>
+                ชื่อวิชา
               </th>
               <th  className="has-text-centered">
-                <abbr title="Credit">หน่วยกิจ</abbr>
+                หน่วยกิต
               </th>
               <th  className="has-text-centered">
-                <abbr title="Grade">เกรดที่ได้</abbr>
+                เกรดที่ได้
               </th>
             </tr>
         </thead>
     )
   }
 
-function TableFull({courses}) {
+function TableFull({ tid, courses}) {
     console.log(courses)
     if(courses.length == 0){
         return <></>
     }
     return(
-    <table className="table is-bordered is-striped is-hoverable">
+    <table id={tid} className="table is-bordered is-striped is-hoverable">
         {TableHead()}
         <tbody>
             {courses &&
@@ -37,9 +37,9 @@ function TableFull({courses}) {
             })}
         </tbody>
     </table>
-        
+
   )
-  
+
 }
 
 
