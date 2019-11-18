@@ -1,15 +1,21 @@
-@import "~bulma/sass/utilities/_all.sass";
-@import "~bulma/sass/base/_all.sass";
+@import "../Palette.scss";
+
 
 .table{
-    margin-top: 100px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    border-radius: 25px;
 }
 
 
-$pink: #FA7C91;
 
-$table-head-background-color : $pink;
 
+$table-head-background-color :$orangebase;
+$table-cell-border: 2px solid $orangeline ;
+
+
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
 //// other need
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/elements/table.sass";

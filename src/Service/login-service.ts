@@ -3,7 +3,7 @@ import * as actions from "../Redux/Actions/loginAction";
 import { store } from "../index";
 
 const axios = _axios.create({
-  baseURL: "http://10.80.5.132:4000/api/auth"
+  baseURL: "http://10.80.4.32:4000/api/auth"
 });
 
 export function loggingIn(username: string, password: string) {
