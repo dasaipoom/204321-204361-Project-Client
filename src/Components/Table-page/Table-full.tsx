@@ -28,7 +28,7 @@ function TableFull({courses}) {
         return <></>
     }
     return(
-    <table className="table is-bordered is-striped">
+    <table className="table is-bordered is-striped is-hoverable">
         {TableHead()}
         <tbody>
             {courses &&

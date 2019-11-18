@@ -4,14 +4,18 @@
 .table{
     margin-top: 10%;
     margin-bottom: 20%;
-    border-radius: 25px;
+    border-collapse: collapse;
+    border-radius: 1em;
 }
 
 
 
 
 $table-head-background-color :$orangebase;
-$table-cell-border: 2px solid $orangeline ;
+$table-cell-border: 2px solid $halfgray ;
+$table-striped-row-even-background-color:$light;
+$table-row-hover-background-color:$hoverlight;
+$table-striped-row-even-hover-background-color:$hoverlight;
 
 
 @import "~bulma/sass/utilities/_all.sass";
