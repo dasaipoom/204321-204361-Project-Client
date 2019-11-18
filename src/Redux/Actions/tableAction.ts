@@ -11,3 +11,11 @@ export const tableLoadSuccess = createAction("tableLoadSuccess", table => {
 });
 
 export const tableLoadError = createAction("tableLoadError");
+
+export const updateEditedGrade = createAction("updateEditedGrade", course => {
+  return {
+    payload: {
+      course
+    }
+  };
+});

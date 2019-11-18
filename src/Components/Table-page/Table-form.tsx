@@ -2,34 +2,29 @@ import React from "react";
 import { connect } from "react-redux";
 import "./Table-page.scss";
 import { getTable } from "../../Service/table-service";
-import TableEle from "./Table-ele";
-import { render } from "react-dom";
 import TableFull from "./Table-full";
 
-function LoopTable(table){
-  console.log(table)
-  const tab = []
-  if (table){
-  for (let i = 1; i < 9; i++) {
-    const year = table.filter((tables) => {
-      return tables.Year === i  })
+function LoopTable(table) {
+  const tab = [];
+  if (table) {
+    for (let i = 1; i < 9; i++) {
+      const year = table.filter(tables => {
+        return tables.Year === i;
+      });
 
-    for (let j = 1; j < 4; j++){
-      const term = year.filter((year) => {
-        return year.Term === j
-      })
-      // @ts-ignore
-      tab.push(<TableFull key={i+""+j} courses={term} tid={"y"+i+j}/>)
-
+      for (let j = 1; j < 4; j++) {
+        const term = year.filter(year => {
+          return year.Term === j;
+        });
+        // @ts-ignore
+        tab.push(
+          <TableFull key={i + "" + j} courses={term} tid={"y" + i + j} />
+        );
       }
+    }
   }
-
-  }
-  return tab
+  return tab;
 }
-
-
-
 
 class TableForm extends React.Component {
   componentDidMount() {
@@ -41,12 +36,9 @@ class TableForm extends React.Component {
     // @ts-ignore
     const { table } = this.props;
 
-
     return (
       <div className="flexbox">
-        <div className="flex-container">
-          {LoopTable(table)}
-        </div>
+        <div className="flex-container">{LoopTable(table)}</div>
       </div>
       /*<div className="flexbox">
         <div className="flex-container">
