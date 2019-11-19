@@ -6,10 +6,20 @@
     margin-bottom: 20%;
     border-collapse: collapse;
     border-radius: 1em;
+    width: 40%;
+}
+
+.courseid{
+  width: 15%;
 }
 
 
-
+.credit{
+  width: 10%;
+}
+.grade{
+  width: 10%;
+}
 
 $table-head-background-color :$orangebase;
 $table-cell-border: 2px solid $halfgray ;

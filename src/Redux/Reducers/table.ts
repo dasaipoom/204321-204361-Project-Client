@@ -36,6 +36,19 @@ const table = createReducer(defaultState, {
       isOnProgress: false,
       isError: true
     };
+  },
+  updateEditedGrade: (state, action) => {
+    const newTable = state.table.map(ele => {
+      if (ele.CourseID !== action.payload.course.CourseID) return ele;
+      return {
+        ...ele,
+        EditedGrade: action.payload.course.EditedGrade
+      };
+    });
+    return {
+      ...state,
+      table: newTable
+    };
   }
 });
 

@@ -7,6 +7,15 @@ import { configureStore, getDefaultMiddleware } from "redux-starter-kit";
 import rootReducer from "./Redux/Reducers";
 import App from "./Components/App/App";
 import "@fortawesome/fontawesome-free/js/all";
+import SmoothScroll from "smooth-scroll";
+
+// eslint-disable-next-line
+const scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 300,
+  easing: "easeInOutQuart",
+  clip: true,
+  offset: 100
+});
 
 function configureAppStore(preloadedState?) {
   const store = configureStore({

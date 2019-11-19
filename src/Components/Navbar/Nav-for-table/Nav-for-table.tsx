@@ -6,7 +6,7 @@ const NavForTable = ({ maxYear }) => {
     let year = [];
     for (let i = 1; i <= maxYear; i++) {
       year.push(
-        <a href={`#y${i}`} className="navbar-item">
+        <a key={i} href={`#y${i}1`} className="navbar-item">
           ปี {i}
         </a>
       );
