@@ -3,7 +3,7 @@ import * as actions from "../Redux/Actions/loginAction";
 import { store } from "../index";
 
 const axios = _axios.create({
-  baseURL: "http://localhost:4000/auth"
+  baseURL: "http://localhost:4000/api/auth"
 });
 
 export function loggingIn(username: string, password: string) {
@@ -40,7 +40,7 @@ export function loggingOut() {
   return dispatch => {
     dispatch(actions.logoutStart());
     axios
-      .post("/login", null, {
+      .post("/logout", null, {
         headers: { Authorization: store.getState().login.jwt }
       })
       .then(_ => {

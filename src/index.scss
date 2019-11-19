@@ -4,7 +4,11 @@ html {
 }
 
 body {
-  background-color: #CDC0B0;
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #bdbdbd;
 }

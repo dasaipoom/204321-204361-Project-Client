@@ -1,29 +1,23 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const NavForTable = () => {
-  return (
-    <div className="navbar-item">
-      <div className="field is-grouped">
-        <p className="control">
-          <a className="button">
-            <span className="icon">
-              <i className="fas fa-twitter" aria-hidden="true"></i>
-            </span>
-            <span>Tweet</span>
-          </a>
-        </p>
-        <p className="control">
-          <a className="button is-primary">
-            <span className="icon">
-              <i className="fas fa-download" aria-hidden="true"></i>
-            </span>
-            <span>Download</span>
-          </a>
-        </p>
-      </div>
-    </div>
-  );
+const NavForTable = ({ maxYear }) => {
+  if (maxYear) {
+    let year = [];
+    for (let i = 1; i <= maxYear; i++) {
+      year.push(
+        <a key={i} href={`#y${i}1`} className="navbar-item">
+          ปี {i}
+        </a>
+      );
+    }
+    return <>{year}</>;
+  }
+  return <></>;
 };
 
-export default NavForTable;
+const mapStateToProps = state => ({
+  maxYear: state.table.maxYear
+});
+
+export default connect(mapStateToProps)(NavForTable);

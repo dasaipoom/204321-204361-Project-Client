@@ -1,28 +1,23 @@
+
 .loginbox {
   width: 350px;
   height: 250px;
-  background: #897165;
-  border: 3px solid #463930;
+  background: #F6AD78;
+  border: 3px solid #E57421;
   box-sizing: border-box;
-  box-shadow: 3px 3px 0px #463930;
+  box-shadow: 3px 3px 0px #E57421;
   border-radius: 15px;
 
 }
 
 .logbutton {
-  width: 120px;
-  height: 60px;
   margin: 30px 0 50px 0;
-  background: #A99282;
-  border: 2px solid #733E2F;
-  box-shadow: 2px 2px 0px #733E2F;
-  border-radius: 12px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 25px;
-  color: #FFFFFF;
+  background: #F6AD78 !important;
+  border: 2px solid #E57421 !important;
+  box-sizing: border-box !important;
+  box-shadow: 2px 2px 0px #E57421 !important;
+  border-radius: 12px !important;
 }
-
 
 .LOGO {
   font-style: normal;
@@ -31,16 +26,12 @@
 
 }
 
-.loginput {
-  width: 250px;
-  height: 30px;
-  border: 2px solid #C4C1BD;
-  border-radius: 5px;
-}
-
 .label {
   margin-bottom: 15px;
-  color: #fff !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 21px;
+  color: #000000 !important;
 }
 
 .flex-container {
@@ -65,6 +56,14 @@
 .bot {
   margin-bottom: 0.75rem;
 }
+.LOGO2{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 56px;
+  text-align: center;
+}
+
 
 // this is important
 @import "~bulma/sass/utilities/_all.sass";

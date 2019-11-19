@@ -10,6 +10,7 @@ const LoginForm = ({ dispatch }) => {
   return (
     <>
       <label className="LOGO">Plan.G</label>
+      <label className="LOGO2">เว็บไซต์ติดตามและเฝ้าระวังการพ้นสภาพนักศึกษา</label>
       <div className="flexbox">
         <form
           onSubmit={e => {
@@ -28,7 +29,7 @@ const LoginForm = ({ dispatch }) => {
                   <label className="label">ID</label>
                   <div className="control">
                     <input
-                      className="loginput"
+                      className="input"
                       type="username"
                       name="username"
                       ref={node => (username = node)}
@@ -39,7 +40,7 @@ const LoginForm = ({ dispatch }) => {
                   <label className="label">Password</label>
                   <div className="control">
                     <input
-                      className="loginput"
+                      className="input"
                       type="password"
                       name="password"
                       ref={node => (password = node)}
@@ -50,10 +51,7 @@ const LoginForm = ({ dispatch }) => {
             </div>
             <div className="flexbox">
               <div className="control">
-                <button
-                  type="submit"
-                  className="logbutton button is-link is-loading"
-                >
+                <button type="submit" className="logbutton button">
                   Login
                 </button>
               </div>

@@ -1,9 +1,12 @@
 import React from "react";
+import TableForm from "./Table-form";
+import { useParams } from "react-router-dom";
 
-class TablePage extends React.Component {
-  render() {
-    return <p>I'm Table page</p>;
-  }
+function TablePage() {
+  return (
+    // @ts-ignore
+    <TableForm id={useParams().id} />
+  );
 }
 
 export default TablePage;
