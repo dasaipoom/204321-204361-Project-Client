@@ -11,7 +11,7 @@ import SmoothScroll from "smooth-scroll";
 
 // eslint-disable-next-line
 const scroll = new SmoothScroll('a[href*="#"]', {
-  speed: 1000,
+  speed: 300,
   easing: "easeInOutQuart",
   clip: true,
   offset: 100

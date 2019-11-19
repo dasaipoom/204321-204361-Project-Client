@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { updateEditedGrade } from "../../Redux/Actions/tableAction";
 import { connect } from "react-redux";
 
 function TableEle({ element, upEditGrade }) {
+  const [text, setText] = useState("");
   const { CourseID, CourseName, CourseCredit, Grade } = element;
-  if (Grade === "P") {
+  if (Grade === "P" || Grade === "I") {
     return (
       <tr>
         <td className="has-text-centered">{CourseID}</td>
@@ -14,11 +15,32 @@ function TableEle({ element, upEditGrade }) {
           <input
             className="input is-small has-text-centered"
             type="EditedGrade"
+            value={text}
             onChange={event => {
-              upEditGrade({
-                ...element,
-                EditedGrade: event.target.value
-              });
+              const upper = event.target.value.toUpperCase();
+              if (
+                [
+                  "A",
+                  "B+",
+                  "B",
+                  "C+",
+                  "C",
+                  "D+",
+                  "D",
+                  "F",
+                  "S",
+                  "U",
+                  "W",
+                  "V",
+                  ""
+                ].includes(upper)
+              ) {
+                setText(upper);
+                upEditGrade({
+                  ...element,
+                  EditedGrade: upper
+                });
+              }
             }}
           />
         </td>

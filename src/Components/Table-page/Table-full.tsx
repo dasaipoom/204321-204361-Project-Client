@@ -1,6 +1,7 @@
 import React from "react";
 import TableEle from "./Table-ele";
 import { GradeAvg, sumCre } from "../../Service/calc";
+import { connect } from "react-redux";
 
 function TableHead() {
   return (
@@ -37,7 +38,34 @@ function sumGrade(courses) {
   );
 }
 
-function TableFull({ tid, courses }) {
+function sumAll(course, allTable) {
+  const stip = allTable.filter(val => {
+    if (val.Year < course.Year) {
+      return val;
+    } else if (val.Year == course.Year && val.Term <= course.Term) return val;
+  });
+  const mapped = stip.map(e => {
+    if (e.Grade === "P") {
+      return {
+        ...e,
+        Grade: e.EditedGrade
+      };
+    }
+    return e;
+  });
+  const avg = GradeAvg(mapped);
+  const cre = sumCre(mapped);
+  return (
+    <tr>
+      <td className="courseid has-text-centered"></td>
+      <td className="coursename has-text-centered"></td>
+      <td className="credit has-text-centered">{cre}</td>
+      <td className="grade has-text-centered">{avg}</td>
+    </tr>
+  );
+}
+
+function TableFull({ tid, courses, table }) {
   if (courses.length === 0) {
     return <></>;
   }
@@ -60,9 +88,14 @@ function TableFull({ tid, courses }) {
             return <TableEle key={index} element={element} />;
           })}
         {courses && sumGrade(sortCourses)}
+        {courses && sumAll(sortCourses[0], table)}
       </tbody>
     </table>
   );
 }
 
-export default TableFull;
+const mapStateToProps = state => ({
+  table: state.table.table
+});
+
+export default connect(mapStateToProps)(TableFull);

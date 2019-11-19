@@ -49,6 +49,7 @@ export function sumCre(arr): number {
     if (
       element.Grade !== "W" &&
       element.Grade !== "U" &&
+      element.Grade !== "V" &&
       element.Grade !== null &&
       element.Grade !== ""
     )
