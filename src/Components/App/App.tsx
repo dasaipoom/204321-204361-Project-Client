@@ -9,7 +9,7 @@ import {
 import LoginPage from "../Login-page/Login-page";
 import { connect } from "react-redux";
 import TablePage from "../Table-page/Table-page";
-import ChatPage from "../Chat-page/Chat-page";
+import ChatPage from "../Chat-page/Chat-student-form";
 import Navbar from "../Navbar/Navbar";
 import { resumeSession } from "../../Redux/Actions/loginAction";
 
@@ -38,8 +38,15 @@ class App extends Component {
             {isLogin ? <Redirect to="/redir" /> : <LoginPage />}
           </Route>
           <Route path="/table/:id">
-            <Navbar isTablePage={true}/>
+            <Navbar isTablePage={true} />
             {isLogin ? <TablePage /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/table">
+            {userType === "student" ? (
+              <Redirect to={`/table/${username}`} />
+            ) : (
+              <Redirect to="/chat" />
+            )}
           </Route>
           <Route path="/chat">
             <Navbar />

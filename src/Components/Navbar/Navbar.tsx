@@ -8,7 +8,7 @@ class Navbar extends React.Component {
   static propTypes = {
     isTablePage: PropTypes.bool
   };
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +54,7 @@ class Navbar extends React.Component {
         <div id="nav" className={`navbar-menu ${active ? "is-active" : ""}`}>
           <div className="navbar-start">{isTablePage && <NavForTable />}</div>
           <div className="navbar-end">
-            <NavbarEnd isTablepage={isTablePage} />
+            <NavbarEnd isTablepage={isTablePage}/>
           </div>
         </div>
       </nav>

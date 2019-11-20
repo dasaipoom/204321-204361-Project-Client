@@ -2,19 +2,34 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loggingOut } from "../../../Service/login-service";
+import { Link } from "react-router-dom";
 
-const NavbarEnd = ({ dispatch, isTablepage }) => {
+const NavbarEnd = ({ dispatch, userType, isTablepage }) => {
   return (
     <div className="navbar-item">
       <div className="field is-grouped">
-        {isTablepage && (
+        {isTablepage && userType === "student" && (
           <p className="control">
-            <button className="button is-primary">
-              <span className="icon">
-                <i className="fas fa-comment"></i>
-              </span>
-              <span>Chat</span>
-            </button>
+            <Link to="/chat">
+              <button className="button is-primary">
+                <span className="icon">
+                  <i className="fas fa-comment"></i>
+                </span>
+                <span>Chat</span>
+              </button>
+            </Link>
+          </p>
+        )}
+        {!isTablepage && userType === "student" && (
+          <p className="control">
+            <Link to="/table">
+              <button className="button is-primary">
+                <span className="icon">
+                  <i className="fas fa-table"></i>
+                </span>
+                <span>Table</span>
+              </button>
+            </Link>
           </p>
         )}
         <p className="control">
@@ -33,8 +48,8 @@ const NavbarEnd = ({ dispatch, isTablepage }) => {
   );
 };
 
-NavbarEnd.propTypes = {
-  isTablepage: PropTypes.bool
-};
+const mapStateToProps = state => ({
+  userType: state.login.userType
+});
 
-export default connect()(NavbarEnd);
+export default connect(mapStateToProps)(NavbarEnd);

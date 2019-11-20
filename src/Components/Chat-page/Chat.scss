@@ -1,0 +1,69 @@
+$green: #86BB71;
+$blue: #94C2ED;
+$orange: #E38968;
+$gray: #92959E;
+
+.sendMesscontainer {
+  border-radius: 5px;
+  border: 1px solid #DBDBDB;
+  box-sizing: border-box;
+  box-shadow: 4px 0px 0px;
+  background-color: white;
+  text-align: center;
+  margin-right: 20px;
+  max-width: 300px;
+}
+
+.revMesscontainer {
+  border-radius: 5px;
+  border: 1px solid $orange;
+  box-sizing: border-box;
+  box-shadow: -4px 0px 0px;
+  background-color: white;
+  text-align: center;
+  margin-left: 20px;
+  max-width: 300px;
+}
+
+.Messboxcontairne {
+  display: flex;
+  padding: 0 20px;
+  margin-top: 20px;
+  flex-direction: row;
+
+  & p {
+    align-self: flex-end;
+    margin: 0 10px;
+  }
+}
+
+.l {
+  justify-content: flex-start;
+}
+
+.r {
+  justify-content: flex-end;
+}
+
+.phar {
+  margin: 5px 10px
+}
+
+.chatfeedbox {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+}
+
+.chatcontainer {
+  display: flex;
+  height: 100vh;
+  align-items: flex-end;
+}
+
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
+// other need
+//@import "~bulma/sass/";
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/form/_all.sass";
