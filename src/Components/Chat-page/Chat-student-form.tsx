@@ -24,13 +24,19 @@ class ChatStudentForm extends React.Component {
       });
 
     return (
-      <>
+      <div className="full">
         <div className="chatcontainer">
+          <div className = "sendcontainer">
+              <input className = "Mesinputbox input is-small" type="Meassage"/>
+              <button className = "sendbutton button is-small " type = "submit">
+                Send
+              </button>
+          </div>
           <div className="chatfeedbox">
             {mes.length > 1 && mes.map(val => <MessageBox mes={val} />)}
           </div>
         </div>
-      </>
+      </div>
 
       // Your JSX...
     );

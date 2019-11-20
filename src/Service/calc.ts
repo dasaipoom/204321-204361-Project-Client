@@ -1,3 +1,4 @@
+// pare does this function
 export function GradeAvg(arr): string {
   let TotalCredit = 0;
   let TotalPoint = 0;
@@ -57,6 +58,41 @@ export function sumCre(arr): number {
   });
   return credit;
 }
-function dateChat(){
-  
+
+export function dateChat(time) {
+  let d = new Date();
+  d.setHours(0, 0, 0);
+  const t = new Date(time);
+  if (d.getTime() < time)
+    return (
+      t
+        .getHours()
+        .toString()
+        .padStart(2, "0") +
+      ":" +
+      t
+        .getMinutes()
+        .toString()
+        .padStart(2, "0")
+    );
+  return (
+    t.getDate() +
+    "/" +
+    t.getMonth() +
+    "/" +
+    t
+      .getFullYear()
+      .toString()
+      .slice(2, 4) +
+    " " +
+    t
+      .getHours()
+      .toString()
+      .padStart(2, "0") +
+    ":" +
+    t
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")
+  );
 }

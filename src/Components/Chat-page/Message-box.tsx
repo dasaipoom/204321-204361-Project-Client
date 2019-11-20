@@ -2,12 +2,13 @@ import React from "react";
 import { render } from "react-dom";
 import "./Chat.scss";
 import { connect } from "react-redux";
+import { dateChat } from "../../Service/calc";
 
 function MessageBox({ mes, userType }) {
   if (mes.SentBy === userType) {
     return (
       <div className="Messboxcontairne r">
-        <p>//ฟังชั่นเวลสาasdfghjkของอีแพร</p>
+        <p>{dateChat(mes.Time)}</p>
         <div className="sendMesscontainer">
           <p className="phar">{mes.Message}</p>
         </div>
@@ -19,7 +20,7 @@ function MessageBox({ mes, userType }) {
         <div className="revMesscontainer">
           <p className="phar">{mes.Message}</p>
         </div>
-        <p>//ฟังชั่นเวลสาของอีแพร</p>
+        <p>{dateChat(mes.Time)}</p>
       </div>
     );
   }
