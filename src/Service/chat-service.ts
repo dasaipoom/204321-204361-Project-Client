@@ -45,15 +45,9 @@ export function getNew(usn?: string) {
   }
   return dispatch => {
     axios
-      .put(
-        `/${usn ? usn : ""}`,
-        {
-          latest
-        },
-        {
-          headers: { Authorization: store.getState().login.jwt }
-        }
-      )
+      .get(`/${usn ? usn : ""}?latest=${latest}`, {
+        headers: { Authorization: store.getState().login.jwt }
+      })
       .then(val => {
         dispatch(getChat(val.data));
       });
@@ -63,15 +57,9 @@ export function getNew(usn?: string) {
 export function getTooNew(usn?: string) {
   return dispatch => {
     axios
-      .put(
-        `/${usn ? usn : ""}`,
-        {
-          latest: 0
-        },
-        {
-          headers: { Authorization: store.getState().login.jwt }
-        }
-      )
+      .get(`/${usn ? usn : ""}?latest=0`, {
+        headers: { Authorization: store.getState().login.jwt }
+      })
       .then(val => {
         dispatch(replaceChat(val.data));
       });
