@@ -7,6 +7,7 @@ import { changeCurr } from "../../Redux/Actions/advAction";
 import "./Adv.scss"
 
 function AdvChat({ username, chat, send, changeCurr }) {
+  console.log(chat)
   let text;
   let mes = [...chat];
   const { pid } = useParams();
@@ -18,7 +19,6 @@ function AdvChat({ username, chat, send, changeCurr }) {
   return (
     <div className="full">
       <div className="chatcontainer">
-        <div><p>kuyyyyyy</p></div>
         <div className="sendcontainer">
           <input
             className="Mesinputbox input is-small"
@@ -38,6 +38,10 @@ function AdvChat({ username, chat, send, changeCurr }) {
             mes.map((val, index) => <MessageBox key={index} mes={val} />)}
         </div>
         <span id="bot"></span>
+        <div className = "talkwith">
+          <p className="stdname">{username}</p>
+          <button className="tablebutton button is-normal"> Studen Table </button>
+        </div>
       </div>
     </div>
   );
