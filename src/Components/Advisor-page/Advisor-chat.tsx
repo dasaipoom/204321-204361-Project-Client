@@ -18,6 +18,7 @@ function AdvChat({ username, chat, send, changeCurr }) {
   return (
     <div className="full">
       <div className="chatcontainer">
+        <div><p>kuyyyyyy</p></div>
         <div className="sendcontainer">
           <input
             className="Mesinputbox input is-small"
