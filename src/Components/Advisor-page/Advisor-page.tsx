@@ -9,7 +9,7 @@ function AdvPage() {
   return (
     <div className="Advflex-container full">
       <AdvStd />
-      <div>{pid && <AdvChat username={pid} mem={null}/>}</div>
+      <div>{pid && <AdvChat username={pid} />}</div>
     </div>
   );
 }
