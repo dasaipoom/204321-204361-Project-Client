@@ -12,6 +12,7 @@ import TablePage from "../Table-page/Table-page";
 import ChatPage from "../Chat-page/Chat-student-form";
 import Navbar from "../Navbar/Navbar";
 import { resumeSession } from "../../Redux/Actions/loginAction";
+import AdvPage from "../Advisor-page/Advisor-page";
 
 class App extends Component {
   componentDidMount() {
@@ -31,7 +32,7 @@ class App extends Component {
             {userType === "student" ? (
               <Redirect to={`/table/${username}`} />
             ) : (
-              <Redirect to="/chat" />
+              <Redirect to="/adv" />
             )}
           </Route>
           <Route path="/login">
@@ -45,12 +46,16 @@ class App extends Component {
             {userType === "student" ? (
               <Redirect to={`/table/${username}`} />
             ) : (
-              <Redirect to="/chat" />
+              <Redirect to="/adv" />
             )}
           </Route>
           <Route path="/chat">
             <Navbar />
             {isLogin ? <ChatPage /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/adv">
+            <Navbar />
+            {isLogin ? <AdvPage /> : <Redirect to="/login" />}
           </Route>
         </Switch>
       </Router>

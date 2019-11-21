@@ -2,7 +2,7 @@ import React from "react";
 import AdvisorForm from "./Advisor-Form";
 import "./Chat.scss";
 
-class ChatPage extends React.Component {
+class AdvPage extends React.Component {
   render() {
     return (
       <div className="flex-container full">
@@ -12,4 +12,4 @@ class ChatPage extends React.Component {
   }
 }
 
-export default ChatPage;
+export default AdvPage;
