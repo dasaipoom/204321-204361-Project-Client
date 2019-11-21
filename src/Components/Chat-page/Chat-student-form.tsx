@@ -24,11 +24,12 @@ class ChatStudentForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     // @ts-ignore
     const { text } = this.state;
     // @ts-ignore
     this.props.send(this.props.adv, text);
-    event.preventDefault();
+    this.setState({ text: "" });
   }
 
   render() {

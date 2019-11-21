@@ -65,13 +65,13 @@ $gray: #92959E;
   border: 2px solid gray;
   margin: 0 auto;
   margin-top: 60px;
- 
+
   display: flex;
   height: 90vh;
   flex-direction: column-reverse;
   align-items: flex-end;
   max-width: 600px;
-  
+
 }
 
 .sendcontainer {
@@ -79,7 +79,7 @@ $gray: #92959E;
   display: flex;
   width: 100%;
   margin: 20px 0px 20px 0px;
-  
+
 
   &>input {
 
@@ -94,7 +94,9 @@ $gray: #92959E;
   }
 }
 
-
+.full {
+  overflow: hidden;
+}
 
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
