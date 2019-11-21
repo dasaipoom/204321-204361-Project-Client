@@ -4,10 +4,11 @@ export const loginStart = createAction("loginStart");
 
 export const loginSuccess = createAction(
   "loginSuccess",
-  (username, jwt, userType, expireOn) => {
+  (username, jwt, userType, expireOn, adv?) => {
     return {
       payload: {
         username,
+        adv,
         jwt,
         userType,
         expireOn

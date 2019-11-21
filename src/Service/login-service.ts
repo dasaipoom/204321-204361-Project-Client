@@ -21,7 +21,8 @@ export function loggingIn(username: string, password: string) {
               res.data.username,
               res.data.jwt,
               res.data.userType,
-              res.data.expireOn
+              res.data.expireOn,
+              res.data.adv
             )
           );
         } else dispatch(actions.loginError(res.data));

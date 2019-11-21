@@ -22,3 +22,15 @@ export function getTable(id: string) {
       });
   };
 }
+
+export function supdate(CourseID, Year, Term, EditedGrade) {
+  axios
+    .put(`/${store.getState().login.username}`, {
+      CourseID, Year, Term, EditedGrade
+    }, {
+      headers: { Authorization: store.getState().login.jwt }
+    })
+    .catch(err => {
+      console.error(err);
+    });
+}

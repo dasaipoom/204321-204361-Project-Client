@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import { updateEditedGrade } from "../../Redux/Actions/tableAction";
 import { connect } from "react-redux";
+import { supdate } from "../../Service/table-service";
 
 function TableEle({ element, upEditGrade }) {
-  const [text, setText] = useState("");
-  const { CourseID, CourseName, CourseCredit, Grade } = element;
+  const {
+    CourseID,
+    CourseName,
+    CourseCredit,
+    Grade,
+    Year,
+    Term,
+    EditedGrade
+  } = element;
+  const [text, setText] = useState(EditedGrade ? EditedGrade : "");
   if (Grade === "P" || Grade === "I") {
     return (
       <tr>
@@ -40,6 +49,7 @@ function TableEle({ element, upEditGrade }) {
                   ...element,
                   EditedGrade: upper
                 });
+                supdate(CourseID, Year, Term, upper);
               }
             }}
           />

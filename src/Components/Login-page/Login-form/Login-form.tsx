@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { loggingIn } from "../../../Service/login-service";
 import "../Login-page.scss";
-import { isError } from "util";
 
 function errText(info) {
   if ((info = "UsnPwd")) return <p>Wrong Username or Password!</p>;
