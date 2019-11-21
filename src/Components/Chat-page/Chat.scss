@@ -60,18 +60,26 @@ $gray: #92959E;
 }
 
 .chatcontainer {
+
+  border-radius: 5px;
+  border: 2px solid gray;
   margin: 0 auto;
+  margin-top: 60px;
+ 
   display: flex;
-  height: 100vh;
+  height: 90vh;
   flex-direction: column-reverse;
   align-items: flex-end;
   max-width: 600px;
+  
 }
 
 .sendcontainer {
+
   display: flex;
   width: 100%;
   margin: 20px 0px 20px 0px;
+  
 
   &>input {
 
@@ -85,6 +93,7 @@ $gray: #92959E;
     margin: 5px 35px 5px auto;
   }
 }
+
 
 
 @import "~bulma/sass/utilities/_all.sass";
