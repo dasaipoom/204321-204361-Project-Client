@@ -1,7 +1,8 @@
 import { createReducer } from "redux-starter-kit";
 
 const defaultState = {
-  student: []
+  student: [],
+  curr: null
 };
 
 const adv = createReducer(defaultState, {
@@ -9,6 +10,12 @@ const adv = createReducer(defaultState, {
     return {
       ...state,
       student: action.payload.student
+    };
+  },
+  changeCurr: (state, action) => {
+    return {
+      ...state,
+      curr: action.payload.curr
     };
   }
 });

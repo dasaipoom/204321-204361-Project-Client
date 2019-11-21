@@ -2,6 +2,7 @@ import io from "socket.io-client";
 import _axios from "axios";
 import { store } from "../index";
 import { getChat, replaceChat } from "../Redux/Actions/chatAction";
+import { getStudent } from "./adv-service";
 
 export const socket = io("http://10.80.6.161:4000/");
 const axios = _axios.create({
@@ -10,7 +11,12 @@ const axios = _axios.create({
 
 socket.on("msg", data => {
   if (data === "new") {
-    store.dispatch(getNew());
+    if (store.getState().login.userType === "student") store.dispatch(getNew());
+    else {
+      store.dispatch(getStudent());
+      const curr = store.getState().adv.curr;
+      if (curr) store.dispatch(getNew(curr));
+    }
   }
 });
 

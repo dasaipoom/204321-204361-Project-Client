@@ -7,3 +7,11 @@ export const replaceUser = createAction("replaceUser", student => {
     }
   };
 });
+
+export const changeCurr = createAction("changeCurr", curr => {
+  return {
+    payload: {
+      curr
+    }
+  };
+});
