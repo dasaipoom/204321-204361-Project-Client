@@ -6,7 +6,7 @@ import { validate } from "@babel/types";
 import "./Chat.scss";
 import MessageBox from "./Message-box";
 
-class ChatStudentForm extends React.Component {
+class AdvisorForm extends React.Component {
   componentDidMount() {
     // @ts-ignore
     this.props.newChat();
@@ -66,4 +66,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatStudentForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AdvisorForm);
