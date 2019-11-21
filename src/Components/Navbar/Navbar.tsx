@@ -29,7 +29,7 @@ class Navbar extends React.Component {
     const { isTablePage } = this.props;
     return (
       <nav
-        className="navbar is-fixed-top"
+        className={`navbar ${isTablePage ? "is-fixed-top" : ""}`}
         role="navigation"
         aria-label="main navigation"
       >
@@ -54,7 +54,7 @@ class Navbar extends React.Component {
         <div id="nav" className={`navbar-menu ${active ? "is-active" : ""}`}>
           <div className="navbar-start">{isTablePage && <NavForTable />}</div>
           <div className="navbar-end">
-            <NavbarEnd isTablepage={isTablePage}/>
+            <NavbarEnd isTablepage={isTablePage} />
           </div>
         </div>
       </nav>
