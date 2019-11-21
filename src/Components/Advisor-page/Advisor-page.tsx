@@ -1,15 +1,19 @@
 import React from "react";
-import AdvisorForm from "./Advisor-Form";
-import "./Chat.scss";
+import Advisorstdlist from "./Advisor-Std";
+import "../Chat-page/Chat.scss";
+import { useParams } from "react-router-dom";
 
-class AdvPage extends React.Component {
-  render() {
+function AdvPage() {
+    const id = useParams().id
+
     return (
+
       <div className="flex-container full">
-        <AdvisorForm />
+        <Advisorstdlist />
+        
       </div>
     );
-  }
+  
 }
 
 export default AdvPage;

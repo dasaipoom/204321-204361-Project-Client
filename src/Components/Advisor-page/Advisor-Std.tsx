@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getTooNew, sendMessage } from "../../Service/chat-service";
-import "./Chat.scss";
+import "../Chat-page/Chat.scss";
+import "./Adv.scss";
 import MessageBox from "../Chat-page/Message-box";
+import Stdbox from "./Student-box";
+
 
 class advForm extends React.Component {
   constructor(props) {
@@ -32,19 +35,6 @@ class advForm extends React.Component {
   }
 
   render() {
-    studentbox(student){
-      <div className = "stdcontainer">
-          <div>
-              <p className="sId">{student.StudentID}</p>
-              <p className="PerFailed">{student.PerFailed}</p>
-          </div>
-          <div>
-              <p className="Sname">{student.Stdname}</p>
-
-          </div>
-      </div>
-      }
-
     // @ts-ignore
     const { chat } = this.props;
     // @ts-ignore
@@ -57,10 +47,12 @@ class advForm extends React.Component {
       });
 
     return (
-      <div className="full">
+    <div>
+      
+      <div className="advcontain full">
         <div className="stdlistcontain">
-        {student.length > 1 &&
-              student.map((val, index) => <studentbox key={index} student={val} />)}
+           {student.length > 1 &&
+            student.map((val, index) => <Stdbox key={index} student={val} />)}
         </div>
         <div className="chatcontainer">
           <div className="sendcontainer">
@@ -84,6 +76,7 @@ class advForm extends React.Component {
           </div>
           <span id="bot"></span>
         </div>
+      </div>
       </div>
     );
   }

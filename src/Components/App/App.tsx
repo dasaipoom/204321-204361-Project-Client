@@ -53,7 +53,11 @@ class App extends Component {
             <Navbar />
             {isLogin ? <ChatPage /> : <Redirect to="/login" />}
           </Route>
-          <Route path="/adv">
+          <Route path="/adv/">
+            <Navbar />
+            {isLogin ? <AdvPage /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/adv/:id">
             <Navbar />
             {isLogin ? <AdvPage /> : <Redirect to="/login" />}
           </Route>
