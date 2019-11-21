@@ -5,6 +5,7 @@ import "./Adv.scss";
 import StdBox from "./Student-box";
 import { getStudent } from "../../Service/adv-service";
 
+
 class AdvStd extends React.Component {
   componentDidMount() {
     // @ts-ignore
