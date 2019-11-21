@@ -36,7 +36,7 @@ export function GradeAvg(arr): string {
       TotalCredit += arr[i].CourseCredit;
       let point = arr[i].CourseCredit * 0.0;
       TotalPoint += point;
-    } else if (arr[i].Grade === "W" || arr[i].Grade === null) {
+    } else {
       continue;
     }
   }

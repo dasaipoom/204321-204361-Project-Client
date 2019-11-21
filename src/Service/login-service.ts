@@ -15,7 +15,7 @@ export function loggingIn(username: string, password: string) {
         password
       })
       .then(res => {
-        if (res.status === 200 && res.data.jwt)
+        if (res.status === 200 && res.data.jwt) {
           dispatch(
             actions.loginSuccess(
               res.data.username,
@@ -24,7 +24,7 @@ export function loggingIn(username: string, password: string) {
               res.data.expireOn
             )
           );
-        else dispatch(actions.loginError(res.data));
+        } else dispatch(actions.loginError(res.data));
       })
       .catch(err => {
         if (err.response) dispatch(actions.loginError(err.response.data));

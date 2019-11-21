@@ -1,5 +1,6 @@
 import { createReducer } from "redux-starter-kit";
 import Cookies from "js-cookie";
+import { socket } from "../../Service/chat-service";
 
 const defaultState = {
   jwt: null,
@@ -14,6 +15,9 @@ const defaultState = {
 const login = createReducer(defaultState, {
   resumeSession: (state, action) => {
     if (Cookies.get("username")) {
+      socket.emit("tellname", {
+        name: Cookies.get("username")
+      });
       return {
         ...state,
         isLogin: true,
@@ -40,6 +44,9 @@ const login = createReducer(defaultState, {
     Cookies.set("username", username, { expires: new Date(expireOn * 1000) });
     Cookies.set("jwt", jwt, { expires: new Date(expireOn * 1000) });
     Cookies.set("userType", userType, { expires: new Date(expireOn * 1000) });
+    socket.emit("tellname", {
+      name: username
+    });
     return {
       ...state,
       isOnProgress: false,
@@ -67,6 +74,7 @@ const login = createReducer(defaultState, {
     Cookies.remove("jwt");
     Cookies.remove("username");
     Cookies.remove("userType");
+    socket.close();
     return {
       ...state,
       jwt: null,
