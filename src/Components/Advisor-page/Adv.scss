@@ -1,17 +1,46 @@
-.advcontain{
-    flex-direction: row,
-    
+.Advflex-container{
+    display: flex;
+    justify-content: flex-start;
 }
 
 .stdcontainer
  {
-    border-radius: 10px;
-    margin-bottom: 50px;
-    border: 2px solid white;
-    background-color: rgba(121, 121, 121, 0.63) ;
+  border-radius: 5px;
+  border: 1px solid #DBDBDB;
+  background-color: white;
+  
+  margin: 10px 15px 0px 15px;
+  max-width: 300px;
+  
+  & > Sname {
+    color: gray;
+    font-size: 12px;
+    margin: 0 10px;
+  }
 
 }
 .stdlistcontain
 {
-    margin-top: 200px;
+    margin: 55px 10px 5px 0px;
+    height: 100vh;
+    background-color: rgb(235, 235, 235);
+}
+
+.studenprofile{
+    display: flex;
+  
+    flex-direction: row;
+
+  &>p {
+    color: black;
+    font-size: 15px;
+    margin: 0px 10px 0px 0px;
+    
+  }
+}
+.profilebox{
+    display: flex;
+    flex-direction:column;
+    margin: 5px 20px;
+
 }

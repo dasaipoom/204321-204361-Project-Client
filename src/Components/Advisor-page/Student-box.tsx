@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 function StdBox({ student }) {
   return (
     <Link to={`/adv/${student.StudentID}`}>
-      <div className="stdcontainer">
-        <div>
-          <p className="sId">{student.StudentID}</p>
-          <p className="PerFailed">{student.PerFailed}</p>
-        </div>
-        <div>
-          <p className="Sname">{student.Stdname}</p>
+      <div className = "stdcontainer">
+        <div className= "profilebox"> 
+          <div className = "studenprofile">
+              <p className="sId">{student.StudentID}</p>
+              <p className="PerFailed">{student.PerFailed}</p>
+          </div>
+          <p className="Sname">{student.StdName}</p>
         </div>
       </div>
     </Link>

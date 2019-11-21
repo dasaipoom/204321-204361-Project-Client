@@ -15,7 +15,7 @@ class AdvStd extends React.Component {
     // @ts-ignore
     const { students } = this.props;
     return (
-      <div>
+      <div className="stdlistcontain">
         {students && students.map((val, index) => {
           return <StdBox key={index} student={val} />;
         })}
