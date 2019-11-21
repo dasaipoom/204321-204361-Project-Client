@@ -2,11 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { getTooNew, sendMessage } from "../../Service/chat-service";
 import MessageBox from "../Chat-page/Message-box";
+import { useParams } from "react-router-dom";
+import { changeCurr } from "../../Redux/Actions/advAction";
 
-function AdvChat({ username, chat }) {
+function AdvChat({ username, chat, send, changeCurr }) {
   let text;
   let mes = [...chat];
-
+  const { pid } = useParams();
+  changeCurr(pid);
   if (mes.length > 1)
     mes.sort((a, b) => {
       return a.Time - b.Time;
@@ -18,13 +21,12 @@ function AdvChat({ username, chat }) {
           <input
             className="Mesinputbox input is-small"
             type="Meassage"
-            onChange={this.handleChange}
             ref={node => (text = node)}
           />
           <button
             className="sendbutton button is-small "
             type="submit"
-            onClick={() => console.log(text)}
+            onClick={() => send(pid, text)}
           >
             Send
           </button>
@@ -46,8 +48,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    newChat: () => dispatch(getTooNew()),
-    send: (to, message) => dispatch(sendMessage(to, message))
+    send: (to, message) => dispatch(sendMessage(to, message)),
+    changeCurr: curr => dispatch(changeCurr(curr))
   };
 };
 
