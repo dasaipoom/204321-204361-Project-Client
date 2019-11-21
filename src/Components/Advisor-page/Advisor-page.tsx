@@ -1,6 +1,5 @@
 import React from "react";
 import AdvisorForm from "./Advisor-Form";
-import "./Chat.scss";
 
 class AdvPage extends React.Component {
   render() {
