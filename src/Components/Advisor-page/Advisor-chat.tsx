@@ -4,6 +4,7 @@ import { getTooNew, sendMessage } from "../../Service/chat-service";
 import MessageBox from "../Chat-page/Message-box";
 import { useParams } from "react-router-dom";
 import { changeCurr } from "../../Redux/Actions/advAction";
+import "./Adv.scss"
 
 function AdvChat({ username, chat, send, changeCurr }) {
   let text;
