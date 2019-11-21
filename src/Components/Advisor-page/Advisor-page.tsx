@@ -14,7 +14,7 @@ function AdvPage({ dispatch }) {
   return (
     <div className="Advflex-container full">
       <AdvStd />
-      <div>{pid && <AdvChat username={pid} />}</div>
+      <div className = "Advchatcontainer">{pid && <AdvChat username={pid} />}</div>
     </div>
   );
 }
