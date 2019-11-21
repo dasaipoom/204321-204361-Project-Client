@@ -3,7 +3,7 @@ import * as actions from "../Redux/Actions/loginAction";
 import { store } from "../index";
 
 const axios = _axios.create({
-  baseURL: "http://localhost:4000/api/auth"
+  baseURL: "http://10.80.6.161:4000/api/auth"
 });
 
 export function loggingIn(username: string, password: string) {
@@ -15,16 +15,17 @@ export function loggingIn(username: string, password: string) {
         password
       })
       .then(res => {
-        if (res.status === 200 && res.data.jwt)
+        if (res.status === 200 && res.data.jwt) {
           dispatch(
             actions.loginSuccess(
               res.data.username,
               res.data.jwt,
               res.data.userType,
-              res.data.expireOn
+              res.data.expireOn,
+              res.data.adv
             )
           );
-        else dispatch(actions.loginError(res.data));
+        } else dispatch(actions.loginError(res.data));
       })
       .catch(err => {
         if (err.response) dispatch(actions.loginError(err.response.data));

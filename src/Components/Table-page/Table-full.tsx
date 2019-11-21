@@ -42,7 +42,8 @@ function sumAll(course, allTable) {
   const stip = allTable.filter(val => {
     if (val.Year < course.Year) {
       return val;
-    } else if (val.Year == course.Year && val.Term <= course.Term) return val;
+    } else if (val.Year === course.Year && val.Term <= course.Term) return val;
+    return null
   });
   const mapped = stip.map(e => {
     if (e.Grade === "P") {

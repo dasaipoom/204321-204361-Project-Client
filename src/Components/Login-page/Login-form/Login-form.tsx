@@ -3,14 +3,21 @@ import { connect } from "react-redux";
 import { loggingIn } from "../../../Service/login-service";
 import "../Login-page.scss";
 
-const LoginForm = ({ dispatch }) => {
+function errText(info) {
+  if ((info = "UsnPwd")) return <p>Wrong Username or Password!</p>;
+  return <p>Error Occured</p>;
+}
+
+const LoginForm = ({ dispatch, isError, errInfo }) => {
   let username;
   let password;
 
   return (
     <>
       <label className="LOGO">Plan.G</label>
-      <label className="LOGO2">เว็บไซต์ติดตามและเฝ้าระวังการพ้นสภาพนักศึกษา</label>
+      <label className="LOGO2">
+        เว็บไซต์ติดตามและเฝ้าระวังการพ้นสภาพนักศึกษา
+      </label>
       <div className="flexbox">
         <form
           onSubmit={e => {
@@ -47,6 +54,9 @@ const LoginForm = ({ dispatch }) => {
                     />
                   </div>
                 </div>
+                <div className="field">
+                  <div className="control">{isError && errText(errInfo)}</div>
+                </div>
               </div>
             </div>
             <div className="flexbox">
@@ -63,4 +73,9 @@ const LoginForm = ({ dispatch }) => {
   );
 };
 
-export default connect()(LoginForm);
+const mapStateToProps = state => ({
+  isError: state.login.isError,
+  errInfo: state.login.errInfo
+});
+
+export default connect(mapStateToProps)(LoginForm);

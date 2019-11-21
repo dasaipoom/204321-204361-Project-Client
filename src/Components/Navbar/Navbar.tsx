@@ -8,7 +8,7 @@ class Navbar extends React.Component {
   static propTypes = {
     isTablePage: PropTypes.bool
   };
-  
+
   constructor(props) {
     super(props);
     this.state = {

@@ -9,9 +9,10 @@ import {
 import LoginPage from "../Login-page/Login-page";
 import { connect } from "react-redux";
 import TablePage from "../Table-page/Table-page";
-import ChatPage from "../Chat-page/Chat-page";
+import ChatPage from "../Chat-page/Chat-student-form";
 import Navbar from "../Navbar/Navbar";
 import { resumeSession } from "../../Redux/Actions/loginAction";
+import AdvPage from "../Advisor-page/Advisor-page";
 
 class App extends Component {
   componentDidMount() {
@@ -31,19 +32,34 @@ class App extends Component {
             {userType === "student" ? (
               <Redirect to={`/table/${username}`} />
             ) : (
-              <Redirect to="/chat" />
+              <Redirect to="/adv" />
             )}
           </Route>
           <Route path="/login">
             {isLogin ? <Redirect to="/redir" /> : <LoginPage />}
           </Route>
           <Route path="/table/:id">
-            <Navbar isTablePage={true}/>
+            <Navbar isTablePage={true} />
             {isLogin ? <TablePage /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/table">
+            {userType === "student" ? (
+              <Redirect to={`/table/${username}`} />
+            ) : (
+              <Redirect to="/adv" />
+            )}
           </Route>
           <Route path="/chat">
             <Navbar />
             {isLogin ? <ChatPage /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/adv/:pid">
+            <Navbar />
+            {isLogin ? <AdvPage /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/adv/">
+            <Navbar />
+            {isLogin ? <AdvPage /> : <Redirect to="/login" />}
           </Route>
         </Switch>
       </Router>

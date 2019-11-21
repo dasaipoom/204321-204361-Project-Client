@@ -8,6 +8,7 @@
     "@types/node": "^12.11.7",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
+    "@types/socket.io-client": "^1.4.32",
     "axios": "^0.19.0",
     "js-cookie": "^2.2.1",
     "react": "^16.11.0",
@@ -18,7 +19,7 @@
     "redux": "^4.0.4",
     "redux-starter-kit": "^1.0.0",
     "smooth-scroll": "^16.1.0",
-    "tabulator-tables": "^4.4.3",
+    "socket.io-client": "^2.3.0",
     "typescript": "^3.6.4"
   },
   "scripts": {

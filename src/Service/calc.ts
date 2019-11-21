@@ -1,3 +1,4 @@
+// pare does this function
 export function GradeAvg(arr): string {
   let TotalCredit = 0;
   let TotalPoint = 0;
@@ -35,7 +36,7 @@ export function GradeAvg(arr): string {
       TotalCredit += arr[i].CourseCredit;
       let point = arr[i].CourseCredit * 0.0;
       TotalPoint += point;
-    } else if (arr[i].Grade === "W" || arr[i].Grade === null) {
+    } else {
       continue;
     }
   }
@@ -56,4 +57,50 @@ export function sumCre(arr): number {
       credit += element.CourseCredit;
   });
   return credit;
+}
+
+export function dateChat(time) {
+  let d = new Date();
+  d.setHours(0, 0, 0);
+  const t = new Date(time);
+  if (d.getTime() < time)
+    return (
+      t
+        .getHours()
+        .toString()
+        .padStart(2, "0") +
+      ":" +
+      t
+        .getMinutes()
+        .toString()
+        .padStart(2, "0")
+    );
+  return (
+    t.getDate() +
+    "/" +
+    t.getMonth() +
+    "/" +
+    t
+      .getFullYear()
+      .toString()
+      .slice(2, 4) +
+    " " +
+    t
+      .getHours()
+      .toString()
+      .padStart(2, "0") +
+    ":" +
+    t
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")
+  );
+}
+
+export function retiredStr(per) {
+  per = 100 - per;
+  if (per <= 0) return "Critical";
+  else if (per <= 33) return "High";
+  else if (per <= 50) return "Medium";
+  else return "Low";
 }

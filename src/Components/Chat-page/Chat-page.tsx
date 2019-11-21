@@ -1,9 +1,13 @@
 import React from "react";
+import ChatForm from "./Chat-student-form";
+import "./Chat.scss";
 
 class ChatPage extends React.Component {
   render() {
     return (
-        <p>I'm chat page</p>
+      <div className="flex-container full">
+        <ChatForm />
+      </div>
     );
   }
 }
