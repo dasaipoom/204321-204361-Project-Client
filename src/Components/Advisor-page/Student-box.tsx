@@ -3,8 +3,8 @@ import "../Chat-page/Chat.scss";
 import { connect } from "react-redux";
 import { dateChat } from "../../Service/calc";
 
-function MessageBox({student}) {
- 
+function StdBox({student}) {
+
     return (
       <div className = "stdcontainer">
           <div>
@@ -19,9 +19,4 @@ function MessageBox({student}) {
     );
   }
 
-
-const mapStateToProps = state => ({
-  userType: state.login.userType
-});
-
-export default connect(mapStateToProps)(MessageBox);
+export default StdBox;

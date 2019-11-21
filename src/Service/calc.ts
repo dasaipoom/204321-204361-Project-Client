@@ -96,3 +96,11 @@ export function dateChat(time) {
       .padStart(2, "0")
   );
 }
+
+export function retiredStr(per) {
+  per = 100 - per;
+  if (per <= 0) return "Critical";
+  else if (per <= 33) return "High";
+  else if (per <= 50) return "Medium";
+  else return "Low";
+}

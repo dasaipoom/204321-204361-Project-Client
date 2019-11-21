@@ -6,14 +6,14 @@ const axios = _axios.create({
   baseURL: "http://localhost:4000/api/adv"
 });
 
-export function loggingIn(username: string, password: string) {
+export function getStudent() {
   return dispatch => {
     axios
       .get("/stuli", {
         headers: { Authorization: store.getState().login.jwt }
       })
       .then(res => {
-        actions.replaceUser(res.data);
+        dispatch(actions.replaceUser(res.data));
       })
       .catch(err => {
         console.error(err);
