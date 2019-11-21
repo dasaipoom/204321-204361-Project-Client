@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import "./Chat.scss";
 import { connect } from "react-redux";
 import { dateChat } from "../../Service/calc";

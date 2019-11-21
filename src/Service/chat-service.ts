@@ -10,23 +10,27 @@ const axios = _axios.create({
 
 socket.on("msg", data => {
   if (data === "new") {
-    getNew();
+    store.dispatch(getNew());
   }
 });
 
 export function sendMessage(to: string, Message: string) {
   return dispatch => {
-    axios.post(
-      "/",
-      {
-        to,
-        Time: Date.now(),
-        Message
-      },
-      {
-        headers: { Authorization: store.getState().login.jwt }
-      }
-    );
+    axios
+      .post(
+        "/",
+        {
+          to,
+          Time: Date.now(),
+          Message
+        },
+        {
+          headers: { Authorization: store.getState().login.jwt }
+        }
+      )
+      .then(val => {
+        dispatch(getChat(val.data));
+      });
     socket.emit("msgTo", {
       username: to,
       message: "new"
@@ -38,10 +42,11 @@ export function getNew(usn?: string) {
   const chat: any[] = store.getState().chat.chat;
   let latest = 0;
   if (chat.length > 0) {
-    chat.sort((a, b) => {
+    const later = [...chat];
+    later.sort((a, b) => {
       return a.Time - b.Time;
     });
-    latest = chat[chat.length - 1].Time;
+    latest = later[later.length - 1].Time;
   }
   return dispatch => {
     axios

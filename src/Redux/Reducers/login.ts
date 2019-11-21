@@ -9,7 +9,8 @@ const defaultState = {
   isError: false,
   errInfo: null,
   username: null,
-  userType: null
+  userType: null,
+  adv: null
 };
 
 const login = createReducer(defaultState, {
@@ -23,7 +24,8 @@ const login = createReducer(defaultState, {
         isLogin: true,
         jwt: Cookies.get("jwt"),
         username: Cookies.get("username"),
-        userType: Cookies.get("userType")
+        userType: Cookies.get("userType"),
+        adv: Cookies.get("adv")
       };
     } else return state;
   },
@@ -36,14 +38,17 @@ const login = createReducer(defaultState, {
       jwt: null,
       errInfo: null,
       username: null,
-      userType: null
+      userType: null,
+      adv: null
     };
   },
   loginSuccess: (state, action) => {
-    const { username, jwt, userType, expireOn } = action.payload;
+    const { username, jwt, userType, expireOn, adv } = action.payload;
     Cookies.set("username", username, { expires: new Date(expireOn * 1000) });
     Cookies.set("jwt", jwt, { expires: new Date(expireOn * 1000) });
     Cookies.set("userType", userType, { expires: new Date(expireOn * 1000) });
+    Cookies.set("adv", adv, { expires: new Date(expireOn * 1000) });
+    socket.open();
     socket.emit("tellname", {
       name: username
     });
@@ -53,7 +58,8 @@ const login = createReducer(defaultState, {
       isLogin: true,
       username,
       jwt,
-      userType
+      userType,
+      adv
     };
   },
   loginError: (state, action) => {
@@ -74,6 +80,7 @@ const login = createReducer(defaultState, {
     Cookies.remove("jwt");
     Cookies.remove("username");
     Cookies.remove("userType");
+    Cookies.remove("adv");
     socket.close();
     return {
       ...state,
@@ -83,7 +90,8 @@ const login = createReducer(defaultState, {
       isError: false,
       errInfo: null,
       username: null,
-      userType: null
+      userType: null,
+      adv: null
     };
   }
 });
