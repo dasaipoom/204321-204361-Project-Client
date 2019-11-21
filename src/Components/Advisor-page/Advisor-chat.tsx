@@ -4,7 +4,7 @@ import { getTooNew, sendMessage } from "../../Service/chat-service";
 import MessageBox from "../Chat-page/Message-box";
 import { useParams } from "react-router-dom";
 import { changeCurr } from "../../Redux/Actions/advAction";
-import "./Adv.scss"
+import "./Adv.scss";
 
 function AdvChat({ username, chat, send, changeCurr }) {
   let text;
@@ -21,13 +21,16 @@ function AdvChat({ username, chat, send, changeCurr }) {
         <div className="sendcontainer">
           <input
             className="Mesinputbox input is-small"
-            type="Meassage"
+            type="Message"
             ref={node => (text = node)}
           />
           <button
             className="sendbutton button is-small "
             type="submit"
-            onClick={() => send(pid, text)}
+            onClick={() => {
+              send(pid, text.value);
+              text.value = "";
+            }}
           >
             Send
           </button>
