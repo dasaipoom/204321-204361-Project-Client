@@ -29,12 +29,12 @@ class Navbar extends React.Component {
     const { isTablePage } = this.props;
     return (
       <nav
-        className="navbar is-fixed-top"
+        className="navbar is-fixed-top is-dark"
         role="navigation"
         aria-label="main navigation"
       >
         <div className={`navbar-brand ${active ? "is-active" : ""}`}>
-          <a className="navbar-item" href="#top">
+          <a className="navbar-item logo" href="#top">
             Plan.G
           </a>
           <a

@@ -3,7 +3,7 @@ import * as actions from "../Redux/Actions/advAction";
 import { store } from "../index";
 
 const axios = _axios.create({
-  baseURL: "http://10.80.6.161:4000/api/adv"
+  baseURL: window.location.origin + "/api/adv"
 });
 
 export function getStudent() {

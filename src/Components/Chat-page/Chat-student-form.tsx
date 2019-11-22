@@ -5,6 +5,7 @@ import "./Chat.scss";
 import MessageBox from "./Message-box";
 
 class ChatStudentForm extends React.Component {
+  messagesEnd: any;
   constructor(props) {
     super(props);
     this.state = {
@@ -12,11 +13,13 @@ class ChatStudentForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
     // @ts-ignore
     this.props.newChat();
+    this.scrollToBottom();
   }
 
   handleChange(event) {
@@ -30,6 +33,20 @@ class ChatStudentForm extends React.Component {
     // @ts-ignore
     this.props.send(this.props.adv, text);
     this.setState({ text: "" });
+  }
+
+  handleKeyPress = event => {
+    if (event.key === "Enter") {
+      this.handleSubmit(event);
+    }
+  };
+
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  };
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
 
   render() {
@@ -53,6 +70,7 @@ class ChatStudentForm extends React.Component {
               type="Meassage"
               value={text}
               onChange={this.handleChange}
+              onKeyPress={this.handleKeyPress}
             />
             <button
               className="sendbutton button is-small "
@@ -65,6 +83,12 @@ class ChatStudentForm extends React.Component {
           <div className="chatfeedbox">
             {mes.length > 1 &&
               mes.map((val, index) => <MessageBox key={index} mes={val} />)}
+            <div
+              style={{ float: "left", clear: "both" }}
+              ref={el => {
+                this.messagesEnd = el;
+              }}
+            ></div>
           </div>
           <span id="bot"></span>
         </div>

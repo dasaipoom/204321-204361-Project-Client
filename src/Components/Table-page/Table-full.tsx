@@ -30,8 +30,9 @@ function sumGrade(courses) {
   const cre = sumCre(mapped);
   return (
     <tr>
-      <td className="has-text-centered"></td>
-      <td className="has-text-centered"></td>
+      <td colSpan={2} className="has-text-right">
+        หน่วยกิตและเกรดที่ได้ในภาคการศึกษา
+      </td>
       <td className="has-text-centered">{cre}</td>
       <td className="has-text-centered">{avg}</td>
     </tr>
@@ -43,7 +44,7 @@ function sumAll(course, allTable) {
     if (val.Year < course.Year) {
       return val;
     } else if (val.Year === course.Year && val.Term <= course.Term) return val;
-    return null
+    return null;
   });
   const mapped = stip.map(e => {
     if (e.Grade === "P") {
@@ -58,8 +59,9 @@ function sumAll(course, allTable) {
   const cre = sumCre(mapped);
   return (
     <tr>
-      <td className="courseid has-text-centered"></td>
-      <td className="coursename has-text-centered"></td>
+      <td colSpan={2} className="coursename has-text-right">
+        หน่วยกิตและเกรดสะสมทั้งหมด
+      </td>
       <td className="credit has-text-centered">{cre}</td>
       <td className="grade has-text-centered">{avg}</td>
     </tr>

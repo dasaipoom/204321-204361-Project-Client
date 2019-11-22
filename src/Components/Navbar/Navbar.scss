@@ -1,7 +1,9 @@
-@import "../Palette.scss";
-
-$navbar-background-color: $orangebase;
-
+.logo {
+  padding: 0 0.5rem !important;
+  box-sizing: content-box;
+  font-size: 35px;
+  height: 3.25rem;
+}
 
 // this is important
 @import "~bulma/sass/utilities/_all.sass";

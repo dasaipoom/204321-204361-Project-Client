@@ -4,9 +4,9 @@ import { store } from "../index";
 import { getChat, replaceChat } from "../Redux/Actions/chatAction";
 import { getStudent } from "./adv-service";
 
-export const socket = io("http://10.80.6.161:4000/");
+export const socket = io(window.location.origin);
 const axios = _axios.create({
-  baseURL: "http://10.80.6.161:4000/api/chat"
+  baseURL: window.location.origin + "/api/chat"
 });
 
 socket.on("msg", data => {

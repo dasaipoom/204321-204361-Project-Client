@@ -7,9 +7,9 @@ const NavbarEnd = ({ dispatch, userType, isTablepage }) => {
   return (
     <div className="navbar-item">
       <div className="field is-grouped">
-        {isTablepage && userType === "student" && (
+        {isTablepage && (
           <p className="control">
-            <Link to="/chat">
+            <Link to={`${userType === "student" ? "/chat" : "/adv"}`}>
               <button className="button is-primary">
                 <span className="icon">
                   <i className="fas fa-comment"></i>

@@ -1,21 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getTooNew, sendMessage } from "../../Service/chat-service";
-import MessageBox from "../Chat-page/Message-box";
+import { sendMessage } from "../../Service/chat-service";
 import { useParams } from "react-router-dom";
 import { changeCurr } from "../../Redux/Actions/advAction";
 import "./Adv.scss";
+import { Link } from "react-router-dom";
+import AdvChatBox from "./Advisor-chatbox";
 
-function AdvChat({ username, chat, send, changeCurr }) {
-  console.log(chat)
+function AdvChat({ username, chat, send, changeCurr, student }) {
   let text;
-  let mes = [...chat];
   const { pid } = useParams();
+  const std = student.find(usn => usn.StudentID === username);
   changeCurr(pid);
-  if (mes.length > 1)
-    mes.sort((a, b) => {
-      return a.Time - b.Time;
-    });
   return (
     <div className="full">
       <div className="chatcontainer">
@@ -37,13 +33,16 @@ function AdvChat({ username, chat, send, changeCurr }) {
           </button>
         </div>
         <div className="chatfeedbox">
-          {mes.length > 1 &&
-            mes.map((val, index) => <MessageBox key={index} mes={val} />)}
+          <AdvChatBox />
         </div>
         <span id="bot"></span>
-        <div className = "talkwith">
-          <p className="stdname">{username}</p>
-          <button className="tablebutton button is-normal"> Studen Table </button>
+        <div className="talkwith">
+          <p className="stdname">
+            {std.StdName} {std.StdSurname}
+          </p>
+          <Link className="tablebutton" to={`/table/${pid}`}>
+            <i className="fas fa-table"></i>
+          </Link>
         </div>
       </div>
     </div>
@@ -52,7 +51,8 @@ function AdvChat({ username, chat, send, changeCurr }) {
 
 const mapStateToProps = state => ({
   chat: state.chat.chat,
-  adv: state.login.adv
+  adv: state.login.adv,
+  student: state.adv.student
 });
 
 const mapDispatchToProps = dispatch => {

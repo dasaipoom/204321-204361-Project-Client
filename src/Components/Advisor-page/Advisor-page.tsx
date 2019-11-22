@@ -5,6 +5,7 @@ import AdvChat from "./Advisor-chat";
 import "./Adv.scss";
 import { getTooNew } from "../../Service/chat-service";
 import { connect } from "react-redux";
+import AdvLottieControl from "./Adv.-lottie";
 
 function AdvPage({ dispatch }) {
   let { pid } = useParams();
@@ -14,7 +15,7 @@ function AdvPage({ dispatch }) {
   return (
     <div className="Advflex-container full">
       <AdvStd />
-      <div className = "Advchatcontainer">{pid && <AdvChat username={pid} />}</div>
+      <div className = "Advchatcontainer">{pid && <AdvChat username={pid} />}{!pid && <AdvLottieControl />}</div>
     </div>
   );
 }

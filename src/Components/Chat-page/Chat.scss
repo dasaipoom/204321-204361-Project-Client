@@ -5,9 +5,9 @@ $gray: #92959E;
 
 .sendMesscontainer {
   border-radius: 5px;
-  border: 1px solid #DBDBDB;
+  border: 1px solid #3273dc;
   box-sizing: border-box;
-  box-shadow: 4px 0px 0px #219EE5;
+  box-shadow: 4px 0px 0px #3273dc;
   background-color: white;
   text-align: center;
   margin-right: 20px;
@@ -16,9 +16,9 @@ $gray: #92959E;
 
 .revMesscontainer {
   border-radius: 5px;
-  border: 1px solid $orange;
+  border: 1px solid $gray;
   box-sizing: border-box;
-  box-shadow: -4px 0px 0px $orange;
+  box-shadow: -4px 0px 0px $gray;
 
   background-color: white;
   text-align: center;
@@ -57,18 +57,17 @@ $gray: #92959E;
   width: 100%;
   display: flex;
   flex-direction: column;
-  height:  100vh;
+  height: 100vh;
 }
 
 .chatcontainer {
 
   border-radius: 5px;
   border: 2px solid gray;
-  margin: 0 auto;
+  margin: 0px;
   margin-top: 3.25rem;
-
   display: flex;
-  height: 90vh;
+  height: 100vh;
   flex-direction: column-reverse;
   align-items: flex-end;
   max-width: 600px;
@@ -79,19 +78,20 @@ $gray: #92959E;
 
   display: flex;
   width: 100%;
-  margin: 20px 0px 20px 0px;
-
+  margin: 20px auto auto auto;
+  justify-content: space-between;
 
   &>input {
 
-    margin: 5px auto 5px 35px;
-    width: 80%;
+    margin: 5px 0 5px 35px;
+    width: 100%;
+
 
   }
 
   &>button {
 
-    margin: 5px 35px 5px auto;
+    margin: 5px 35px 5px 10px;
   }
 }
 

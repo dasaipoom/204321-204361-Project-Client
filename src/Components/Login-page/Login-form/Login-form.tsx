@@ -4,8 +4,8 @@ import { loggingIn } from "../../../Service/login-service";
 import "../Login-page.scss";
 
 function errText(info) {
-  if ((info = "UsnPwd")) return <p>Wrong Username or Password!</p>;
-  return <p>Error Occured</p>;
+  if ((info = "UsnPwd")) return <p className = "has-text-danger">Wrong Username or Password!</p>;
+  return <p className = "has-text-danger">Error Occured</p>;
 }
 
 const LoginForm = ({ dispatch, isError, errInfo }) => {
@@ -30,7 +30,7 @@ const LoginForm = ({ dispatch, isError, errInfo }) => {
           }}
         >
           <div className="flex-container">
-            <div className="loginbox">
+            <div className="loginbox is-dark">
               <div className="flex-container lbox">
                 <div className="field top">
                   <label className="label">ID</label>
@@ -61,7 +61,7 @@ const LoginForm = ({ dispatch, isError, errInfo }) => {
             </div>
             <div className="flexbox">
               <div className="control">
-                <button type="submit" className="logbutton button">
+                <button type="submit" className="logbutton button is-dark">
                   Login
                 </button>
               </div>
