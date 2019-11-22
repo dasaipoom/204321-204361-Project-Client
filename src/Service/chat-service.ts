@@ -23,25 +23,27 @@ socket.on("msg", data => {
 
 export function sendMessage(to: string, Message: string) {
   return dispatch => {
-    axios
-      .post(
-        "/",
-        {
-          to,
-          Time: Date.now(),
-          Message
-        },
-        {
-          headers: { Authorization: store.getState().login.jwt }
-        }
-      )
-      .then(val => {
-        dispatch(getChat(val.data));
+    if (Message.length > 0) {
+      axios
+        .post(
+          "/",
+          {
+            to,
+            Time: Date.now(),
+            Message
+          },
+          {
+            headers: { Authorization: store.getState().login.jwt }
+          }
+        )
+        .then(val => {
+          dispatch(getChat(val.data));
+        });
+      socket.emit("msgTo", {
+        username: to,
+        message: "new"
       });
-    socket.emit("msgTo", {
-      username: to,
-      message: "new"
-    });
+    }
   };
 }
 
