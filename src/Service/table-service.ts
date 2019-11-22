@@ -3,6 +3,7 @@ import * as actions from "../Redux/Actions/tableAction";
 import { store } from "../index";
 
 const axios = _axios.create({
+  //baseURL: "http://localhost:4000/api/plan"
   baseURL: window.location.origin + "/api/plan"
 });
 

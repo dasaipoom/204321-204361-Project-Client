@@ -20,6 +20,12 @@ function AdvChat({ username, chat, send, changeCurr, student }) {
             className="Mesinputbox input is-small"
             type="Message"
             ref={node => (text = node)}
+            onKeyPress={event => {
+              if (event.key === "Enter") {
+                send(pid, text.value);
+                text.value = "";
+              }
+            }}
           />
           <button
             className="sendbutton button is-small "

@@ -6,6 +6,7 @@ import { getStudent } from "./adv-service";
 
 export const socket = io(window.location.origin);
 const axios = _axios.create({
+  //baseURL: "http://localhost:4000/api/chat"
   baseURL: window.location.origin + "/api/chat"
 });
 
