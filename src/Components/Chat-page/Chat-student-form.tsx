@@ -63,7 +63,7 @@ class ChatStudentForm extends React.Component {
 
     return (
       <div className="full">
-        <div className="chatcontainer">
+        <div className="chatcontainerstu">
           <div className="sendcontainer">
             <input
               className="Mesinputbox input is-small"
