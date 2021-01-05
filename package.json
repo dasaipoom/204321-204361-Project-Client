@@ -9,7 +9,7 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@types/socket.io-client": "^1.4.32",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "js-cookie": "^2.2.1",
     "lottie-react-web": "^2.1.4",
     "react": "^16.11.0",
