@@ -48,6 +48,6 @@
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@types/react-redux": "^7.1.5",
     "bulma": "^0.8.0",
-    "node-sass": "^4.13.0"
+    "node-sass": "^7.0.0"
   }
 }
